@@ -623,13 +623,24 @@ body, html {
 			position: absolute;
 			display: inline-block;
 			bottom: -15px;
-			left: (274px-28px)/2;
+			left: (275px-28px)/2;
 			width: 0;
 			height: 0;
 			border-left: 14px solid transparent;
 			border-right: 14px solid transparent;
 			border-top: 15px solid transparent;
 		}
+		a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			line-height: 90px;
+			text-align: left;
+			color: #78C4FF;
+			text-decoration: none;
+		}
+
 		&.option1 {
 			background-image: data-uri('../images/user/usericonf1.png');
 		}
@@ -644,7 +655,9 @@ body, html {
 		}
 		&:hover, &.active {
 			background-color: #4FBCFB;
-			color: #fff;
+			a {
+				color: #fff;
+			}
 			span {
 				border-top: 15px solid #4FBCFB;
 			}
@@ -1278,9 +1291,21 @@ body, html {
 			border-right: 14px solid transparent;
 			border-top: 15px solid transparent;
 		}
+		a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			line-height: 90px;
+			text-align: center;
+			color: #78C4FF;
+			text-decoration: none;
+		}
 		&:hover, &.active {
 			background-color: #4FBCFB;
-			color: #fff;
+			a {
+				color: #fff;
+			}
 			span {
 				border-top: 15px solid #4FBCFB;
 			}
