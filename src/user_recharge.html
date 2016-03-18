@@ -47,11 +47,11 @@
 				</div>
 				<div class="line"></div>
 				<div class="charge-box">
-					<label class="charge-amount">充值金额：<input class="amount" />元</label>
+					<label class="charge-amount" data-playway=1>充值金额：<input class="amount" type="text" name="amount" />元</label>
 					<div class="charge-way">
 						<p>请选择充值方式：</p>
 						<span class="play weixinplay fl"><b>微信支付</b></span>
-						<span class="play aplay fl"><b>支付宝支付</b></span>
+						<span class="play aplay active fl"><b>支付宝支付</b></span>
 						<span class="btn-play fl">支&nbsp;&nbsp;&nbsp;付</span>
 					</div>
 				</div>
@@ -64,6 +64,12 @@
 				</div>
 			</div>
 		</div>
+		<div class="weixinpay-qrcode-box">
+			<div id="weixinpay-qrcode">
+				
+			</div>
+		</div>
+		
 	</div>
 	<!-- container end -->
 
@@ -101,5 +107,24 @@
 		</div>
 	</div>
 	<!-- footer end -->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/laydate.js"></script>
+	<script src="js/layer.js"></script>
+	<script src="js/jquery.qrcode.min.js"></script>
+	<script>
+		var userInfo;
+	</script>
+	<script src="js/main.js"></script>
+	<script>
+			layer.open({
+			    type: 1,
+			    title: false,
+			    closeBtn: 0,
+			    area: '516px',
+			    skin: 'layui-layer-nobg', //没有背景色
+			    shadeClose: true,
+			    content: $('#weixinpay-qrcode')
+			});
+		</script>
 </body>
 </html>

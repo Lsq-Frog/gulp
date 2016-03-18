@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html style="height: 100%">
+<html style="height: 100%" onkeydown="LoginSubmit(event)">
 <head>
 	<meta charset="utf-8">
 	<title>精灵云 | 做国内最专业的容器云管理平台(内测版)</title>
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
 </head>
-<body style="height: 100%">
+<body style="height: 100%; min-height: 760px">
 	<!-- header -->
-	<div class="header" style="background-image: url(images/loginbk.png); height: 100%;background-size: 1341px 464px;background-color: #4DA1E7;">
+	<div class="header" style="background-image: url(images/loginbk.png); height: 100%;background-size: 1341px 464px;background-color: #4DA1E7;background-position-y: 70%;">
 		<div class="header-top oh" style="border: 0;">
 			<div class="w1330 oh">
 				<a class="header-top-logo fl" href="#"><img src="images/logo.png" title="精灵云 | 做国内最专业的容器云管理平台"></a>
@@ -19,7 +19,7 @@
 					<div class="h-t-nav-option"><a href="#">精灵学院</a></div>
 					<div class="h-t-nav-option"><a href="#">加入我们</a></div>
 					<div class="h-t-nav-option"><a class="active" href="#">用户中心</a></div>
-					<div class="h-t-nav-option"><span class="user-header-img"></span><p class="user-name">Emma&nbsp;&nbsp;&nbsp;| </p><a href="#">退出</a></div>
+					<div class="h-t-nav-option"><span class="user-header-img"></span><p class="user-name">EmmaEmmaEmmaEmmaEmmaEmma</p>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">退出</a></div>
 				</div>
 			</div>
 		</div>
@@ -27,43 +27,47 @@
 	<!-- header end -->
 
 	<!-- container -->
-	<div class="login-box">
-		<div class="img"></div>
-		<div class="btn-login-way">
-			<div class="btn login-by-account active">
-				用户名密码登录
-				<div class="btn-focus"><span></span></div>
-			</div>
-			<div class="btn login-by-weixin">
-				扫描二维码登录
-				<div class="btn-focus"><span></span></div>
+	<div class="container-login">
+		<div class="login-box by-account">
+			<div class="img"></div>
+			<div class="login-by-account">
+				<div class="title">用户名密码登录</div>
+				<div class="input-box">
+					<input class="name" name="name" />
+					<input class="pwd" name="pwd" type="p" />
+				</div>
+				<div class="forget">
+					<a href="#">我要注册</a>
+					<span>|</span>
+					<a href="#">忘记密码?</a>
+				</div>
+				<div class="btn-login">登&nbsp;&nbsp;&nbsp;&nbsp;录</div>
 			</div>
 		</div>
-		<div class="login-way">
+		<div class="login-box by-weixin">
+			<div class="img"></div>
+			<div class="login-by-weixin">
+				<div class="title">微信扫描二维码登录</div>
+				<div class="box">
+					<div id="login-container"></div>
+				</div>
+			</div>
+		</div>
+		<div class="btn-by-way">
 			<div class="box">
-				<div class="account-login fl">
-					<div class="input-box">
-						<input class="name" name="name" />
-						<input class="pwd" name="pwd" />
-					</div>
-					<div class="forget">
-						<a href="#">我要注册</a>
-						<span>|</span>
-						<a href="#">忘记密码?</a>
-					</div>
-					<div class="btn-login">登&nbsp;&nbsp;&nbsp;&nbsp;录</div>
+				<div class="box-1">
+					<div class="btn btn-by-account"></div>
+					<div class="btn btn-by-weixin"></div>
 				</div>
-				<div class="weixin-login fl">
-					<div class="login-container" id="login_container"></div>
-				</div>
-			</div>			
+			</div>
+			<div class="tip">扫码登录</div>
 		</div>
 	</div>
 	<!-- container end -->
 
 	<!-- footer -->
-	<div class="">
-		
+	<div class="login-footer">
+		Copyright © 2015-2016 Ghostcloud 成都精灵云科技有限公司 ｜蜀ICP备14013440号-2
 	</div>
 	<!-- footer end -->
 
