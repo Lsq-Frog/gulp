@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="images/header-nav/logo.png"></div>
+		<div class="header-nav">
+			<div class="option option7 bll user">
+				<span class="icon"></span>
+				<div class="userinfo">
+					<p id="username" class="username">lai2252352325lai2252352325lai2252352325<span class="btn"></span></p>
+				</div>
+				<div id="logout" class="logout">
+					<a href="#">退&nbsp;&nbsp;&nbsp;&nbsp;出</a>
+				</div>
+			</div>
+			<a class="option option6 brl" href="http://www.ghostcloud.cn/home/user_info.html">
+				<span class="icon"></span>
+				<p>用户中心</p>
+			</a>
+			<a class="option option5" href="http://www.ghostcloud.cn/home/about.html">
+				<span class="icon"></span>
+				<p>加入我们</p>
+			</a>
+			<a class="option option4" href="http://www.ghostcloud.cn/home/mdList">
+				<span class="icon"></span>
+				<p>精灵学院</p>
+			</a>
+			<a class="option option3" href="#">
+				<span class="icon"></span>
+				<p>产品文档</p>
+			</a>
+			<a class="option option2" href="http://www.ghostcloud.cn:8080/platform">
+				<span class="icon"></span>
+				<p>控制台</p>
+			</a>
+			<a class="option option1" href="http://www.ghostcloud.cn">
+				<span class="icon"></span>
+				<p>首页</p>
+			</a>
+		</div>
+	</div>
+	<script>
+		$('#username').on('click', function(){
+			$('#logout').stop().animate({ 'height': '54px' }, { queue: false, duration: 400})
+		})
+		$('.user').hover(function() {
+			
+		}, function() {
+			$('#logout').stop().animate({ 'height': '0' }, { queue: false, duration: 400})
+		});
+	</script>
+</body>
+</html>

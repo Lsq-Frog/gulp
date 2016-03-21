@@ -1,20 +1,3 @@
-$.setCookie = function(sName, sValue) {
-	var date = new Date();
-	date = new Date(date.valueOf() + 3600 * 168); // A week
-	document.cookie = sName + "=" + escape(sValue) + "; expires=" + date.toGMTString();
-}
-
-$.getCookie = function(sName) {
-    var cookies = document.cookie.split("; ");
-    for (var i = 0; i < cookies.length; i++) {
-        var aCrumb = cookies[i].split("=");
-        if (sName == aCrumb[0]) {
-            return unescape(aCrumb[1]);
-        }
-    }
-    return "";
-}
-
 var getLocalTime = function (nS) {
 	return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
 }
@@ -470,13 +453,29 @@ var TestCode = function(str){
 	}
 	return true;
 }
-
+//验证手机验证码的正确性
+var TestCode2 = function(str){
+	if(str == ""){
+		layer.close(TipsIndex.codeTipsIndex);
+		TipsIndex.codeTipsIndex = layer.tips('验证码不能为空!', '#telcodebytel', {
+			shift: -1,
+			tipsMore: true,
+			time: 0
+		});
+		return false;
+	}
+	return true;
+}
 
 //获取手机验证码
 var timer = null;
 $('#telcode').on('click', function() {
 	GetCode();
 })
+$('#telcodebytel').on('click', function() {
+	GetCodeByTel();
+})
+
 var GetCode = function(){
 	var btn = $('#telcode');
 	if(btn.hasClass('disable')){
@@ -544,6 +543,52 @@ var GetCode = function(){
 	}else {
 		layer.close(TipsIndex.codeTipsIndex);
 		TipsIndex.codeTipsIndex = layer.tips('请先输入您的手机号码!', '#telcode', {
+			shift: -1,
+			tipsMore: true,
+			time: 0
+		});
+		RegistersStepOne.code = false;
+	}
+}
+
+var GetCodeByTel = function(){
+	var btn = $('#telcodebytel');
+	if(btn.hasClass('disable')){
+		return;
+	}else if(TestTel($('#usertel').val(), true)) {
+    	layer.close(TipsIndex.codeTipsIndex);
+		TipsIndex.codeTipsIndex = layer.tips('验证短信已发送!', '#telcodebytel', {
+			shift: -1,
+			tips: [2, '#6BC827'],
+			tipsMore: true,
+			time: 0
+		});
+		RegistersStepOne.code = true;
+        if (timer) {
+            clearInterval(timer);
+        }
+        $.ajax("/user/sendVCode/" + $("[name='phone']").val(), {
+            type: 'GET',
+            dataType: "json",
+            success: function(result) {
+                if (result.err != 0) {
+                    return
+                }
+                // 开始倒计时
+                var seconds = 120;
+                timer = setInterval(function() {
+                    btn.addClass('disable').text("重新发送(" + seconds + ")");
+                    seconds--;
+                    if (seconds == 0) {
+                        clearInterval(timer);
+                       	btn.removeClass('disable').text("重新发送");
+                    }
+                }, 1000);
+            },
+        });
+	}else {
+		layer.close(TipsIndex.telTipsIndex);
+		TipsIndex.codeTipsIndex = layer.tips('请先输入您的手机号码!', '#usertel', {
 			shift: -1,
 			tipsMore: true,
 			time: 0
@@ -673,18 +718,6 @@ var TestOldPwd = function(str){
 }
 
 $(document).ready(function() {
-	//处理用户是否在线
-	if ($.getCookie("gc-userid") && $.getCookie("gc-userkey")) {
-		$('.login').hide();
-		$('.register').hide();
-		$('.logout').show();
-		$('.user-center').show();
-	} else {
-		$('.login').show();
-		$('.register').show();
-		$('.logout').hide();
-		$('.user-center').hide();
-	}
 	//处理用户权限
 	// if ($.getCookie("gc-userlevel") === "166") {
 	// 	$('#userlevel').show();
@@ -773,7 +806,7 @@ $(document).ready(function() {
             id: "login-container",
             appid: "wx06ffb7b4e9912fca",
             scope: "snsapi_login",
-            redirect_uri: "http://ghostcloud.cn/weixin/login/callback",
+            redirect_uri: "http://www.ghostcloud.cn/weixin/login/callback",
             state: "",
             style: "",
             href: ""
@@ -903,7 +936,7 @@ $(document).ready(function() {
         })
     }
 
-    //修改密码
+    //用户修改密码
     if($('.user-changepwd-box').length > 0) {
     	$("#changepwd-form").submit(function(e) {
     	    e.preventDefault(); //STOP default action
@@ -941,6 +974,77 @@ $(document).ready(function() {
     		$("#changepwd-form").submit();
     	})
     }
+
+    //忘记密码
+	if ($('.changepwd-box').length > 0) {
+    	var setRegisterPos = function(isTurn) {
+            var registerbox = $('.changepwd-box');
+            var footer = $('.register-footer');
+            var bodyW = $('body').width();
+            var bodyH = $('body').height();
+        	registerbox.css({'top': (bodyH - 600)/2});
+
+            if(parseInt(footer.css('top')) <= 760){
+            	footer.css({'top':760-90});
+            }
+            if(bodyH > 760) {
+            	footer.css({'top': bodyH-90});
+            }
+        }
+    	$(window).resize(function() {
+            setRegisterPos();
+        })
+        setRegisterPos();
+
+		$("#changepwd-form").submit(function(e) {
+		    e.preventDefault(); //STOP default action
+
+		    var postData = $(this).serializeArray();
+		    var formURL = $(this).attr("action");
+		    $.ajax({
+		        url: formURL,
+		        type: "POST",
+		        data: postData,
+		        dataType: "json",
+		        xhrFields: {
+		            withCredentials: true
+		        },
+		        success: function(result) {
+		            if (result.err != 0) {
+		               	TipsIndex.telTipsIndex = layer.tips(result.msg, '#usertel', {
+							shift: -1,
+							tipsMore: true,
+							time: 0
+						});
+		                return;
+		            }else {
+		            	layer.confirm('密码修改成功！', {
+						    btn: ['确定'] //按钮
+						}, function() {
+						    window.location.href = "/home/login.html";
+						})
+		            }  
+		        },
+		    });
+		});
+		$('.changepwd-btn').on('click', function(){
+			TelIsExist(true);
+			if(RegistersStepOne.tel && TestCode2($('.telcode').val()) && TestPwd($('#pwd').val()) && TestSPwd()){
+				if(stepTwo()){
+    				layer.close(TipsIndex.codeTipsIndex);
+					TipsIndex.codeTipsIndex = layer.tips('验证码错误!', '#telcodebytel', {
+						shift: -1,
+						tipsMore: true,
+						time: 0
+					});
+					return;
+    			}else {
+    				$("#changepwd-form").submit();
+    			}
+			}
+		})
+	}
+
     //用户信息处理
     if($('.container-user-nav').length > 0) {
     	//充值账单

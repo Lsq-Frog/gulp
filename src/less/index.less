@@ -2440,7 +2440,7 @@ body, html {
 			.loop((@counter - 1));    // 递归调用自身
 			.appOptionsWho(@counter);
 		}
-		.loop(8)
+		.loop(27)
 	}
 }
 //.product-app-content end
@@ -2689,3 +2689,139 @@ body, html {
 //school-container end
 //ghostcloud_school.html end
 
+
+//change_password.html
+//container_changepwd
+.container_changepwd {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.changepwd-box {
+	position: relative;
+	margin: auto;
+	overflow: hidden;
+	width: 280px*3;
+	height: 600px;
+	.title {
+		font-size: 26px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 20px;
+		color: #fff;
+	}
+	.changepwd-content {
+		overflow: hidden;
+		margin: auto;
+		width: 450px;
+		height: 420px;
+		label {
+			display: inline-block;
+			overflow: hidden;
+			margin: 20px 50px;
+			width: 350px;
+			&.first {
+				margin-top: 80px;
+			}
+		}
+		input {
+			padding: 0 10px;
+			width: 330px;
+			height: 38px;
+			border: 1px solid #B0B0B0;
+			border-radius: 5px;
+			font-size: 14px;
+		}
+		button {
+			margin: 20px 50px;
+			border: 0;
+			width: 350px;
+			height: 40px;
+			border-radius: 5px;
+			background-color: #70D89C;
+			font-size: 18px;
+			color: #fff;
+			&.disable {
+				background-color: #ccc;
+			}
+		}
+		.get-code-btn {
+			float: right;
+			display: inline-block;
+			width: 150px;
+			height: 40px;
+			border-radius: 5px;
+			cursor: pointer;
+			text-align: center;
+			font-size: 14px;
+			line-height: 40px;
+			background-color: #F6C749;
+			color: #fff;
+			&.disable {
+				background-color: #dcdcdc;
+			}
+		}
+		.telcode {
+			width: 160px;
+		}
+		.pwdqu {
+			display: inline-block;
+			width: 350px;
+			height: 20px;
+			margin-top: 20px;
+			font-size: 14px;
+			line-height: 20px;
+			color: #fff;
+			em {
+				margin: 1px 2px;
+				display: inline-block;
+				width: 88px;
+				height: 18px;
+				border-radius: 9px;
+				background-color: #AEC597;
+				text-align: center;
+				line-height: 18px;
+				&.active {
+					background-color: #E1C52C;
+				}
+			}
+		}
+		.title {
+			margin-top: 60px;
+			height: 60px;
+			font-size: 24px;
+			color: #FEE300;
+			padding-left: 50px;
+			line-height: 60px;
+			background: data-uri('../images/registericon2.png') 3px 0 no-repeat;
+		}
+		.gift {
+			margin: auto;
+			width: 224px;
+			height: 275px;
+			background: data-uri('../images/registericon3.png') center no-repeat;
+			a {
+				position: relative;
+				top: 225px;
+				left: (224px - 80px)/2;
+				margin: auto;
+				display: inline-block;
+				text-align: center;
+				width: 80px;
+				font-size: 20px;
+				font-weight: bold;
+				color: #fff;
+				border-bottom: 1px dotted #fff;
+				&:hover {
+					color: #4DA1E7;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+//container_changepwd end
+//change_password.html end
