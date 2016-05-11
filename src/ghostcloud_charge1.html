@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+    <link rel="stylesheet" href="css/index.min.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<!-- header -->
+<div class="header" style="background: #2696EC; height: 105px;">
+    <div class="header-top" style="border: 0;">
+        <div class="w1330" style="overflow: visible">
+            <a class="header-top-logo fl" href="#"><img src="images/logotest.png" title="精灵云 | 做国内最专业的容器云管理平台"></a>
+            <div class="header-top-nav fr">
+                <div class="h-t-nav-option"><a href="#">首页</a></div>
+                <div class="h-t-nav-option"><a href="#">控制台</a></div>
+                <div class="h-t-nav-option"><a href="#">产品</a></div>
+                <div class="h-t-nav-option"><a href="#">文档</a></div>
+                <div class="h-t-nav-option"><a href="#">精灵学院</a></div>
+                <div class="h-t-nav-option"><a href="#">加入我们</a></div>
+                <div class="h-t-nav-option"><a class="active" href="#">用户中心</a></div>
+                <div class="h-t-nav-option user-info">
+                    <span class="user-header-img"></span><p class="user-name">Emma</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="user-manage">
+                        <span class="span1"></span>
+                        <span class="span2"></span>
+                        <a class="first" href="#">用户中心</a>
+                        <a href="#">退出</a>
+                    </div>
+                </div>
+                <script>
+                    $('.user-manage').find('.first').hover(function(){
+                        $('.user-manage').find('.span1').css({borderBottomColor: '#6FB6F4'})
+                    },function(){
+                        $('.user-manage').find('.span1').css({borderBottomColor: '#1898FB'})
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- container -->
+<div class="container">
+    <div class="container-charge w1190">
+        <div class="title">
+            <h3>精灵云PaaS平台收费标准一览表</h3>
+            <p>CHARGE STANDARDS OF GHOSTCLOUD PAAS PLATFORM</p>
+        </div>
+        <table cellspacing="0" style="margin-bottom: 40px">
+            <tr>
+                <th class="bkcolor1 b0" style="width: 224px">收费模式</th>
+                <th style="width: 415px">收费价格</th>
+                <th class="b0" style="width: 550px">收费说明</th>
+            </tr>
+            <tr>
+                <td class="td bkcolor2 b0 bb1" style="width: 224px">
+                    <p>主机收费模式</p>
+                    <p>（按主机个数收费）</p>
+                </td>
+                <td class="bb1" style="width: 415px">
+                    <div class="info b0" style="border-right: 1px solid #EFEFEF">
+                        <h3 class="top bkcolor3" style="width: 207px;border-bottom: 1px solid #EFEFEF">共有主机</h3>
+                        <div class="bottom">
+                            <p>目前优惠价：</p>
+                            <p><span>0.02 </span>元/主机*小时</p>
+                            <span class="line"></span>
+                            <p class="old-color">原价：0.50元/主机*小时</p>
+                        </div>
+                    </div>
+                    <div class="info b0">
+                        <h3 class="top bkcolor3" style="width: 207px;border-bottom: 1px solid #EFEFEF">私有主机</h3>
+                        <div class="bottom">
+                            <p>目前优惠价：</p>
+                            <p><span>0.02 </span>元/主机*小时</p>
+                            <span class="line"></span>
+                            <p class="old-color">原价：0.50元/主机*小时</p>
+                        </div>
+                    </div>
+                </td>
+                <td class="bb1" style="width: 550px">
+                    <p class="charge-info">主机收费模式是指用户将自己私有主机接入到默认集群或是用户自己创建的集群中，通过精灵云PaaS管理平台来管理用户的主机。这种情况下是按照主机收费模式来收取费用。</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="td bkcolor2 b0 bb1" style="width: 224px">
+                    <p>容器收费模式</p>
+                    <p>（按容器个数收费）</p>
+                </td>
+                <td class="bb1" style="width: 415px">
+                    <div class="info b0" style="width: 415px">
+                        <div class="bottom">
+                            <p>目前优惠价：<span>0.05 </span>元/主机*小时</p>
+                            <span class="line"></span>
+                            <p class="old-color">原价：0.20元/主机*小时</p>
+                        </div>
+                    </div>
+                </td>
+                <td class="bb1" style="width: 550px">
+                    <p class="charge-info">容器收费模式是指用户将任何应用部署到精灵云集群上所产生的容器，这种情况下是按照容器收费模式来收取费用。</p>
+                </td>
+            </tr>
+        </table>
+        <table class="table2" cellspacing="0" style="margin-bottom: 40px">
+            <tr>
+                <th class="bkcolor1 b0" style="width: 224px">平台服务</th>
+                <th style="width: 340px">主机收费模式（公有主机）</th>
+                <th style="width: 340px">主机收费模式（私有主机）</th>
+                <th class="b0" style="width: 285px">容器收费模式</th>
+            </tr>
+            <tr>
+                <td class="bkcolor2">容器型云主机服务</td>
+                <td><span class="f x"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">一键式使用Docker</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">可伸缩的集群服务</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">高速公共镜像仓库</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">私有镜像仓库</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">丰富的应用模板</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">安全备份</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">负载均衡</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">弹性伸缩</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+            <tr>
+                <td class="bkcolor2">二级域名</td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+                <td><span class="f v"></span></td>
+            </tr>
+        </table>
+        <div class="title">
+            <h3>常见问题</h3>
+            <p>FAQ</p>
+        </div>
+        <div class="problem">
+            <div class="option">
+                <div class="img" style="background: url(images/problem1.png) center no-repeat #EFEFEF;"></div>
+                <div class="info">
+                    <h3>什么是主机收费模式？</h3>
+                    <p>主机收费模式是指用户通过接入公有/私有主机的方式接入用户自己的主机到默认集群或是用户自己创建的集群， 并且将应用部署到用户自己的集群上，这种情况下是按照主机收费模式来收费。</p>
+                </div>
+            </div>
+            <div class="option" style="margin-right: 0">
+                <div class="img" style="background: url(images/problem2.png) center no-repeat #EFEFEF;"></div>
+                <div class="info">
+                    <h3>什么是主机收费模式？</h3>
+                    <p>主机收费模式是指用户通过接入公有/私有主机的方式接入用户自己的主机到默认集群或是用户自己创建的集群， 并且将应用部署到用户自己的集群上，这种情况下是按照主机收费模式来收费。</p>
+                </div>
+            </div>
+            <div class="option">
+                <div class="img" style="background: url(images/problem3.png) center no-repeat #EFEFEF;"></div>
+                <div class="info">
+                    <h3>什么是主机收费模式？</h3>
+                    <p>主机收费模式是指用户通过接入公有/私有主机的方式接入用户自己的主机到默认集群或是用户自己创建的集群， 并且将应用部署到用户自己的集群上，这种情况下是按照主机收费模式来收费。</p>
+                </div>
+            </div>
+            <div class="option" style="margin-right: 0">
+                <div class="img" style="background: url(images/problem4.png) center no-repeat #EFEFEF;"></div>
+                <div class="info">
+                    <h3>什么是主机收费模式？</h3>
+                    <p>主机收费模式是指用户通过接入公有/私有主机的方式接入用户自己的主机到默认集群或是用户自己创建的集群， 并且将应用部署到用户自己的集群上，这种情况下是按照主机收费模式来收费。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container end -->
+</body>
+</html>

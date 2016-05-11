@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+    <link rel="stylesheet" href="css/index.min.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<!-- header -->
+<div class="header" style="background: #2696EC; height: 105px;">
+    <div class="header-top" style="border: 0;">
+        <div class="w1330" style="overflow: visible">
+            <a class="header-top-logo fl" href="#"><img src="images/logotest.png" title="精灵云 | 做国内最专业的容器云管理平台"></a>
+            <div class="header-top-nav fr">
+                <div class="h-t-nav-option"><a href="#">首页</a></div>
+                <div class="h-t-nav-option"><a href="#">控制台</a></div>
+                <div class="h-t-nav-option"><a href="#">产品</a></div>
+                <div class="h-t-nav-option"><a href="#">文档</a></div>
+                <div class="h-t-nav-option"><a href="#">精灵学院</a></div>
+                <div class="h-t-nav-option"><a href="#">加入我们</a></div>
+                <div class="h-t-nav-option"><a class="active" href="#">用户中心</a></div>
+                <div class="h-t-nav-option user-info">
+                    <span class="user-header-img"></span><p class="user-name">Emma</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="user-manage">
+                        <span class="span1"></span>
+                        <span class="span2"></span>
+                        <a class="first" href="#">用户中心</a>
+                        <a href="#">退出</a>
+                    </div>
+                </div>
+                <script>
+                    $('.user-manage').find('.first').hover(function(){
+                        $('.user-manage').find('.span1').css({borderBottomColor: '#6FB6F4'})
+                    },function(){
+                        $('.user-manage').find('.span1').css({borderBottomColor: '#1898FB'})
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- container -->
+<div class="container">
+    <div class="container-charge-title">
+        <div class="w1190">精灵云平台服务计价器</div>
+    </div>
+    <div class="container-charge w1190">
+        <div class="charge-nav-box">
+            <div class="nav nav-caas active">CaaS平台收费标准</div>
+            <div class="nav nav-paas">PaaS平台收费标准</div>
+            <div class="nav nav-services">GWS服务收费标准</div>
+        </div>
+        <div class="content">
+            <div class="option-box">
+                <div class="title title1">服务简介</div>
+                <div class="caas-introduce">
+                    <h3>什么是CaaS平台服务？</h3>
+                    <p>Ghostcloud CaaS平台服务是指精灵云为没有主机的用户提供的容器服务。用户在没有自己的主机的情况下，可以直接使用精灵云提供的主机，并将应用部署到精灵云集群上。部署到精灵云集群上的容器，无论启停都会收取费用，但是删除容器后不会计费，从回收站恢复后重新开始计费。用户可以通过下面的计价器了解精灵云CaaS服务的计费情况。</p>
+                </div>
+                <div class="title title2">选择资源配置</div>
+                <div class="config-option option1" style="margin-top: 20px">
+                    <h3>地域</h3>
+                    <div class="config-box">
+                        <div class="config-box-option area-box">
+                            <div class="box-title">请选择接入区域：</div>
+                            <div class="box-option area-option caas-area active">北京大区</div>
+                            <div class="box-option area-option caas-area">深圳大区</div>
+                            <div class="box-option area-option caas-area">杭州大区</div>
+                            <div class="box-option area-option caas-area">成都大区</div>
+                        </div>
+                        <div class="config-box-option area-introduce">
+                            <div class="box-title">注：</div>
+                            <div class="introduce-info">
+                                <p>1）一般情况下，用户最好选择最靠近您和您客户的节点，距离越近会减少延迟时间和提供更快的下载速度。</p>
+                                <p>2）目前不同地域价格是不一样的，用户可以根据需求选择不同的地域位置。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="config-option option2">
+                    <h3>主机配置</h3>
+                    <div class="config-box">
+                        <div class="config-box-option disk-space">
+                            <div class="box-title">磁盘空间：</div>
+                            <div class="box-option disk-space-option caas-disk active">20G</div>
+                        </div>
+                        <div class="config-box-option kernel-box">
+                            <div class="box-title">CPU：</div>
+                            <div class="box-option kernel-option caas-kernel active">1核</div>
+                            <div class="box-option kernel-option caas-kernel">2核</div>
+                            <div class="box-option kernel-option caas-kernel">4核</div>
+                            <div class="box-option kernel-option caas-kernel">8核</div>
+                            <div class="box-option kernel-option caas-kernel">16核</div>
+                        </div>
+                        <div class="config-box-option" style="padding-bottom: 10px">
+                            <div class="box-title">内存空间：</div>
+                            <div class="memory-space">
+                                <div class="scale-panel">
+                                    <span class="r">32GB</span>
+                                    <span class="c44">1GB</span>
+                                    <span class="l">64M</span>
+                                    <div class="scale" style="position: absolute;left: -13px; background-color: transparent; width: 436px" id="bar">
+                                        <span id="btn" style="left: 182px;"></span>
+                                    </div>
+                                    <div class="scale">
+                                        <div id="show" style="width: 182px;"></div>
+                                        <part class="part m-part1 active"></part>
+                                        <part class="part m-part2 active"></part>
+                                        <part class="part m-part3 active"></part>
+                                        <part class="part m-part4 active"></part>
+                                        <part class="part m-part5"></part>
+                                        <part class="part m-part6"></part>
+                                        <part class="part m-part7"></part>
+                                        <part class="part m-part8"></part>
+                                    </div>
+                                </div>
+                                <div class="scale-info" id="memory"><span>1</span>GB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="config-option option3">
+                    <h3>公网带宽</h3>
+                    <div class="config-box">
+                        <div class="config-box-option" style="padding-bottom: 10px; margin-top: 30px">
+                            <div class="box-title">带宽：</div>
+                            <div class="memory-space">
+                                <div class="scale-panel">
+                                    <span class="r">50Mbps</span>
+                                    <span class="c">25Mbps</span>
+                                    <span class="l">1Mbps</span>
+                                    <div class="scale" style="position: absolute;left: -13px; background-color: transparent; width: 436px" id="bar1">
+                                        <span id="btn1" style="left: 0px;"></span>
+                                    </div>
+                                    <div class="scale" id="">
+                                        <div id="show1" style="width: 0px;"></div>
+                                    </div>
+                                </div>
+                                <div class="scale-info"><span id="band-width">25</span>Mbps</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-list">
+                <div class="list-title">价格计算</div>
+                <div class="config-info" id="result-info1">
+                    <h3>当前配置：</h3>
+                    <p><span>所选类别：</span>PaaS平台服务</p>
+                    <p><span>地区：</span><p class="Area">北京大区</p></p>
+                    <p><span>CPU：</span><p class="CPU">1核</p></p>
+                    <p><span>内存：</span><p class="Memory">1GB</p></p>
+                    <p><span>磁盘空间：</span><p class="Disk">20GB</p></p>
+                    <p><span>公网带宽：</span><p class="BandWidth">1Mbps</p></p>
+                    <p><span>私有仓库：</span>免费</p>
+                    <div class="num-box">
+                        <span>容器数量：</span>
+                        <div class="num-info" id="containers-num" data-num=1>
+                            <input class="num" value="1"/>
+                            <span class="add"></span>
+                            <span class="sub disable"></span>
+                        </div>
+                        <span style="margin-left: 10px; width: 40px">个</span>
+                    </div>
+                </div>
+                <div class="charge-result">
+                    <h3>费用合计：</h3>
+                    <p>≈ ￥<em id="chargeResult">0.777</em><span> 元/小时</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="content" style="display: none">
+            <div class="option-box">
+                <div class="title title1">服务简介</div>
+                <div class="caas-introduce">
+                    <h3>什么是PaaS平台服务？</h3>
+                    <p>Ghostcloud PaaS平台服务是指用户将自己私有主机接入到默认集群或是用户自己创建的集群中，通过精灵云PaaS管理平台来管理用户的主机。精灵云将根据用户接入主机的配置进行计费。用户可以通过下面的计价器了解精灵云PaaS平台服务的计费情况。</p>
+                </div>
+                <div class="title title2">选择资源配置</div>
+                <div class="config-option option1" style="margin-top: 20px">
+                    <h3>地域</h3>
+                    <div class="config-box">
+                        <div class="config-box-option area-box">
+                            <div class="box-title">请选择接入区域：</div>
+                            <div class="box-option area-option paas-area active">北京大区</div>
+                            <div class="box-option area-option paas-area">深圳大区</div>
+                            <div class="box-option area-option paas-area">杭州大区</div>
+                            <div class="box-option area-option paas-area">成都大区</div>
+                        </div>
+                        <div class="config-box-option area-introduce">
+                            <div class="box-title">注：</div>
+                            <div class="introduce-info">
+                                <p>1）一般情况下，用户最好选择最靠近您和您客户的节点，距离越近会减少延迟时间和提供更快的下载速度。</p>
+                                <p>2）目前不同地域价格是不一样的，用户可以根据需求选择不同的地域位置。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="config-option option2">
+                    <h3>主机配置</h3>
+                    <div class="config-box">
+                        <div class="config-box-option kernel-box">
+                            <div class="box-title">CPU：</div>
+                            <div class="box-option kernel-option paas-kernel active">1核</div>
+                            <div class="box-option kernel-option paas-kernel">2核</div>
+                            <div class="box-option kernel-option paas-kernel">4核</div>
+                            <div class="box-option kernel-option paas-kernel">8核</div>
+                            <div class="box-option kernel-option paas-kernel">16核</div>
+                        </div>
+                        <div class="config-box-option" style="padding-bottom: 10px">
+                            <div class="box-title">内存空间：</div>
+                            <div class="memory-space">
+                                <div class="scale-panel">
+                                    <span class="r">32GB</span>
+                                    <span class="c44">1GB</span>
+                                    <span class="l">64M</span>
+                                    <div class="scale" style="position: absolute;left: -13px; background-color: transparent; width: 436px" id="bar2">
+                                        <span id="btn2" style="left: 182px;"></span>
+                                    </div>
+                                    <div class="scale">
+                                        <div id="show2" style="width: 182px;"></div>
+                                        <part class="part m-part1 active"></part>
+                                        <part class="part m-part2 active"></part>
+                                        <part class="part m-part3 active"></part>
+                                        <part class="part m-part4 active"></part>
+                                        <part class="part m-part5"></part>
+                                        <part class="part m-part6"></part>
+                                        <part class="part m-part7"></part>
+                                        <part class="part m-part8"></part>
+                                    </div>
+                                </div>
+                                <div class="scale-info" id="memory1"><span>1</span>GB</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <div class="box-title">注：</div>
+                            <p style="line-height: 40px">目前精灵云将根据用户接入主机的配置进行计费</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-list">
+                <div class="list-title">价格计算</div>
+                <div class="config-info" id="result-info2">
+                    <h3>当前配置：</h3>
+                    <p><span>所选类别：</span>PaaS平台服务</p>
+                    <p><span>地区：</span><p class="Area">成都大区</p></p>
+                    <p><span>CPU：</span><p class="CPU">1核</p></p>
+                    <p><span>内存：</span><p class="Memory">1GB</p></p>
+                    <div class="num-box">
+                        <span>主机数量：</span>
+                        <div class="num-info" id="containers-num1" data-num=1>
+                            <input class="num" value="1"/>
+                            <span class="add"></span>
+                            <span class="sub disable"></span>
+                        </div>
+                        <span style="margin-left: 10px; width: 40px">个</span>
+                    </div>
+                </div>
+                <div class="charge-result">
+                    <h3>费用合计：</h3>
+                    <p>≈ ￥<em id="chargeResult1">0.777</em><span> 元/小时</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="content" style="display: none">
+            <div class="option-box">
+                <div class="title title1">服务简介</div>
+                <div class="caas-introduce">
+                    <h3>什么是PaaS平台服务？</h3>
+                    <p>Ghostcloud PaaS平台服务是指用户将自己私有主机接入到默认集群或是用户自己创建的集群中，通过精灵云PaaS管理平台来管理用户的主机。精灵云将根据用户接入主机的配置进行计费。用户可以通过下面的计价器了解精灵云PaaS平台服务的计费情况。</p>
+                </div>
+                <div class="title title3">选择服务</div>
+                <div class="config-option option4" style="margin-top: 15px">
+                    <h3>负载均衡</h3>
+                    <div class="config-box">
+                        <div class="config-box-option" style="padding-bottom: 10px;">
+                            <div class="box-title" style="height: 45px;line-height: 45px;">启用：</div>
+                            <div class="load-balancing">
+                                <span class="mr20">OFF</span>
+                                <div class="load-balancing-box" id="load-balancing-btn" data-open=1><span></span></div>
+                                <span class="ml20">ON</span>
+                            </div>
+                        </div>
+                        <div class="config-box-option area-introduce">
+                            <div class="box-title">注：</div>
+                            <div class="introduce-info">
+                                <p>1）负载均衡可以通过流量分发扩展应用系统对外的服务能力，通过消除单点故障提升应用系统的可用性。</p>
+                                <p>2）负载均衡服务会检查容器池中资源的健康状态，自动关闭、伸缩容器，提高了应用容器的整体服务能力。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title title4">免费项目</div>
+                <div class="free-box" style="margin-top: 15px">
+                    <div class="free-option free-option1 caas-free">
+                        <h3>高速公共镜像仓库</h3>
+                    </div>
+                    <div class="free-option free-option2 caas-free">
+                        <h3>私有镜像仓库</h3>
+                    </div>
+                    <div class="free-option free-option3 caas-free">
+                        <h3>丰富的应用模板</h3>
+                    </div>
+                    <div class="free-option free-option4 caas-free">
+                        <h3>安全备份</h3>
+                    </div>
+                    <div class="free-option free-option5 caas-free mr0">
+                        <h3>安全备份</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="price-list">
+                <div class="list-title">价格计算</div>
+                <div class="config-info" id="result-info3">
+                    <h3>当前配置：</h3>
+                    <p><span>所选类别：</span>GWS服务</p>
+                    <p ><span>负载均衡：</span><p class="LoadBalancing">关闭</p></p>
+                    <p><span>私有仓库：</span>免费</p>
+                    <div class="num-box">
+                        <span>应用数量：</span>
+                        <div class="num-info" id="containers-num2" data-num=1>
+                            <input class="num" value="1"/>
+                            <span class="add"></span>
+                            <span class="sub disable"></span>
+                        </div>
+                        <span style="margin-left: 10px; width: 40px">个</span>
+                    </div>
+                </div>
+                <div class="charge-result">
+                    <h3>费用合计：</h3>
+                    <p>≈ ￥<em id="chargeResult2">0.777</em><span> 元/小时</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container end -->
+<script src="js/main.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+
+    $('#load-balancing-btn').on('click', function(){
+        if(parseInt($(this).attr('data-open')) == 1) {
+            $(this).find('span').stop().animate({marginLeft: 61},400,function(){$('#load-balancing-btn').attr('data-open', 0).css({backgroundColor: '#69BEFF'})});
+        }else {
+            $(this).find('span').stop().animate({marginLeft: 1},400,function(){$('#load-balancing-btn').attr('data-open', 1).css({backgroundColor: '#E4E4E4'})});
+        }
+    });
+    $('#load-balancing-btn1').on('click', function(){
+        if(parseInt($(this).attr('data-open')) == 1) {
+            $(this).find('span').stop().animate({marginLeft: 61},400,function(){$('#load-balancing-btn1').attr('data-open', 0)});
+        }else {
+            $(this).find('span').stop().animate({marginLeft: 1},400,function(){$('#load-balancing-btn1').attr('data-open', 1)});
+        }
+    });
+    $('.charge-nav-box').find('.nav').on('click', function(){
+        var idx =  $('.charge-nav-box').find('.nav').index(this);
+        $(this).addClass('active').siblings('.nav').removeClass('active');
+        $('.container-charge').find('.content').eq(idx).show().siblings('.content').hide();
+    });
+
+    var cassgetcharge = new getcharge();
+    cassgetcharge.initCharge(CaasPriceList,{
+        Area: (CaasPriceList.getArea(0))[1],                                         //地域
+        Disk: CaasPriceList.getDisk(0)[1],                                         //磁盘大小，单位G
+        CPU: CaasPriceList.getCPU(0)[1],                                           //CUP核数
+        Memory: CaasPriceList.getMemory(5,1)[1],                                    //内存
+        BandWidth: CaasPriceList.getBandWidth(1)[1]                              //带宽
+    }, {
+        ChargeResult: '#chargeResult',                  //结果
+        Area: '.caas-area',                             //区域
+        Disk: '.disk-space-option',                     //磁盘
+        CPU: '.caas-kernel',                            //CPU
+        Memory: '#memory',                              //内存
+        BandWidth: '#band-width',                       //带宽
+        LoadBalancing: '',                              //负载均衡
+        Num: '#containers-num',                         //数量
+        Result: '#result-info1'                         //结果
+    }, function(){
+        new scale('btn','bar','show','memory',function (obj,pos,x){
+            var memory = [64, 128, 256, 512, 1, 2, 4, 8, 16, 32];
+            var idx = 0;
+            if(pos == 0){
+                idx = 0
+            }else {
+                idx = parseInt(pos/100*9)+1;
+                if(idx < 10){
+                    $('#'+obj.btn.id).stop().animate({left: 410/9*idx},{function(){
+                        obj.parts.each(function () {
+                            var i = obj.parts.index(this);
+                            if(i<idx){
+                                $(this).addClass('active');
+                            }else {
+                                $(this).removeClass('active');
+                            }
+                        });
+                    }},400);
+                    $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
+                }else {
+                    idx = 9
+                }
+            }
+            if(idx < 4){
+                obj.title.innerHTML='<span>'+memory[idx]+'</span>MB';
+                memory[idx] /= 1000;
+            }else {
+                obj.title.innerHTML='<span>'+memory[idx]+'</span>GB';
+            }
+            var r = CaasPriceList.getMemory(idx, memory[idx]);
+            cassgetcharge.Cost.Memory = r[1];
+            $(cassgetcharge.Obj.Result).find('.Memory').text(r[0]);
+            cassgetcharge.updataCharge();
+        },function(obj,pos,x){
+            obj.step.style.width=Math.max(0,x)+'px';
+            var idx = 0;
+            if(pos == 0){
+                idx = 0
+            }else {
+                idx = parseInt(pos/100*9);
+            }
+            obj.parts.each(function () {
+                var i = obj.parts.index(this);
+                if(i<idx){
+                    $(this).addClass('active');
+                }else {
+                    $(this).removeClass('active');
+                }
+            });
+        });
+    }, function(){
+        new scale('btn1','bar1','show1','band-width',function(obj,pos,x){
+            var band = parseInt(pos/100*49);
+            var r = CaasPriceList.getBandWidth(band+1);
+            cassgetcharge.Cost.BandWidth = r[1];
+            $(cassgetcharge.Obj.Result).find('.BandWidth').text(r[0]);
+            cassgetcharge.updataCharge();
+        }, function (obj,pos,x){
+            obj.step.style.width=Math.max(0,x)+'px';
+            var band = parseInt(pos/100*49);
+            obj.title.innerHTML=(band+1).toFixed(0);
+        });
+    });
+    var Passgetcharge = new getcharge();
+    Passgetcharge.initCharge(PaasPriceList,{
+        Area: PaasPriceList.getArea(0)[1],                                         //地域
+        Disk: PaasPriceList.getDisk(0)[1],                                         //磁盘大小，单位G
+        CPU: PaasPriceList.getCPU(0)[1],                                           //CUP核数
+        Memory: PaasPriceList.getMemory(5,1)[1],                                    //内存
+        BandWidth: PaasPriceList.getBandWidth(0)[1]                               //带宽
+    }, {
+        ChargeResult: '#chargeResult1',                     //结果
+        Area: '.paas-area',                                 //区域
+        Disk: '',                                           //磁盘
+        CPU: '.paas-kernel',                                //CPU
+        Memory: '#memory1',                                  //内存
+        BandWidth: '',                       //带宽
+        LoadBalancing: '',            //负载均衡
+        Num: '#containers-num1',
+        Result: '#result-info2'                          //结果
+    }, function(){
+        new scale('btn2','bar2','show2','memory1',function (obj,pos,x){
+            var memory = [64, 128, 256, 512, 1, 2, 4, 8, 16, 32];
+            var idx = 0;
+            if(pos == 0){
+                idx = 0
+            }else {
+                idx = parseInt(pos/100*9)+1;
+                if(idx < 10){
+                    $('#'+obj.btn.id).stop().animate({left: 410/9*idx},{function(){
+                        obj.parts.each(function () {
+                            var i = obj.parts.index(this);
+                            if(i<idx){
+                                $(this).addClass('active');
+                            }else {
+                                $(this).removeClass('active');
+                            }
+                        });
+                    }}, 400);
+                    $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
+                }else {
+                    idx = 9
+                }
+            }
+            if(idx < 4){
+                obj.title.innerHTML='<span>'+memory[idx]+'</span>MB';
+                memory[idx] /= 1000;
+            }else {
+                obj.title.innerHTML='<span>'+memory[idx]+'</span>GB';
+            }
+            var r = PaasPriceList.getMemory(idx, memory[idx])
+            Passgetcharge.Cost.Memory = r[1];
+            $(Passgetcharge.Obj.Result).find('.Memory').text(r[0]);
+            Passgetcharge.updataCharge();
+        },function(obj,pos,x){
+            obj.step.style.width=Math.max(0,x)+'px';
+            var idx = 0;
+            if(pos == 0){
+                idx = 0
+            }else {
+                idx = parseInt(pos/100*9);
+            }
+            obj.parts.each(function () {
+                var i = obj.parts.index(this);
+                if(i<idx){
+                    $(this).addClass('active');
+                }else {
+                    $(this).removeClass('active');
+                }
+            });
+        });
+    });
+    var GWSgetcharge = new getcharge();
+    GWSgetcharge.initCharge(CWSPriceList,{
+        Area: CWSPriceList.getArea(0)[1],                                         //地域
+        Disk: CWSPriceList.getDisk(0)[1],                                         //磁盘大小，单位G
+        CPU: CWSPriceList.getCPU(0)[1],                                           //CUP核数
+        Memory: CWSPriceList.getMemory(0)[1],                                    //内存
+        BandWidth: CWSPriceList.getBandWidth(0)[1]                               //带宽
+    }, {
+        ChargeResult: '#chargeResult2',                     //结果
+        Area: '',                                 //区域
+        Disk: '',                                           //磁盘
+        CPU: '',                                //CPU
+        Memory: '',                                  //内存
+        BandWidth: '',                       //带宽
+        LoadBalancing: '#load-balancing-btn',            //负载均衡
+        Num: '#containers-num2',
+        Result: '#result-info3'                          //结果
+    });
+</script>
+</body>
+</html>

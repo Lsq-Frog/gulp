@@ -28,21 +28,21 @@
 
 	<!-- container -->
 	<div class="container-register">
-		<div class="register-box">
+		<!--<div class="register-box">
 			<div class="title">用户注册</div>
 			<div class="register-process">
 				<div class="one">
-					<div class="img"><area class="active"/></div>
+					<div class="img"><span class="active">1</span><area class="active"/></div>
 					<span>填写用户资料</span>
 				</div>
 				<div class="line line-1"><span></span></div>
 				<div class="two">
-					<div class="img"><area/></div>
+					<div class="img"><span>2</span><area/></div>
 					<span>密码设置</span>
 				</div>
 				<div class="line line-2"><span></span></div>
 				<div class="three">
-					<div class="img"><area/></div>
+					<div class="img"><span>3</span><area/></div>
 					<span>完成</span>
 				</div>
 			</div>
@@ -58,6 +58,11 @@
 							</label>
 							<label>
 								<input id="usertel" type="text" name="usertel" placeholder="请输入您的手机号" onkeyup="TestTel(this.value)"  onBlur="TelIsExist()"/>
+							</label>
+							<label>
+								<input class="codeimgvalue" name="codeimgnum" placeholder="请输入验证码" type="text" />
+								<div class="codeimg"><img src="/register/{{.CodeImgID}}.png" /></div>
+	    						<input name="codeimgid" type="hidden" value="{{.CodeImgID}}" />
 							</label>
 							<button class="btn first-step-btn">下一步</button>
 						</div>
@@ -86,12 +91,17 @@
 					</div>
 				</form>
 			</div>
+		</div>-->
+		<div class="register-box">
+			<div class="img"></div>
+			<p class="not-register-one">很抱歉，目前公测名额已满，感谢您对精灵云的关注！</p>
+			<p class="not-register-two">如有任何疑问，请拨打我们的客服电话：028-65785728，欢迎致电！</p>
 		</div>
 	</div>
 	<!-- container end -->
 
 	<!-- footer -->
-	<div class="register-footer">
+	<div class="register-footer" style="top: 90%">
 		Copyright © 2015-2016 Ghostcloud 成都精灵云科技有限公司 ｜蜀ICP备14013440号-2
 	</div>
 	<!-- footer end -->

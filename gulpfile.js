@@ -26,16 +26,6 @@ gulp.task('html', function() {
 
 
 // 样式处理
-var config = {
-    src: './src/css/*.css',
-    dest: './dist/css',
-    options: {
-        baseDir: 'dist',
-        extensions: ['png', 'jpg'],
-        maxImageSize: 20 * 1024, // bytes
-        debug: true
-    }
-}
 gulp.task('css', function() {
     var cssSrc = './src/less/*.less',
         cssDst = './dist/css',
@@ -44,7 +34,6 @@ gulp.task('css', function() {
     gulp.src(cssSrc)
         .pipe(less({ style: 'expanded' }))
         .pipe(gulp.dest(cssDstz))
-        .pipe(concat('main.css'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
         .pipe(gulp.dest(cssDst));
@@ -57,7 +46,7 @@ gulp.task('images', function() {
     gulp.src(imgSrc)
         .pipe(imagemin())
         .pipe(gulp.dest(imgDst));
-})
+});
 
 // js处理
 gulp.task('js', function() {
@@ -90,9 +79,9 @@ gulp.task('watch', function() {
     // gulp.start('html', 'css', 'images', 'js');
 
     // 监听html
-    gulp.watch('src/*.html', function(event) {
-            gulp.run('html');
-        })
+    gulp.watch('src/*.html', function () {
+        gulp.run('html');
+    });
         // 监听css
     gulp.watch('src/less/*.less', function() {
         gulp.run('css');

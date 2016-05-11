@@ -5,8 +5,9 @@
 	<title>精灵云 | 做国内最专业的容器云管理平台(内测版)</title>
 	<link type="image/x-icon" rel="shortcut icon" href="/images/ghostcloud.png" />
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" href="css/index.min.css">
 </head>
-<body>
+<body style="background-color: #FAFAFA">
 	<!-- header -->
 	<div class="header" style="background: #2696EC; height: 105px;">
 		<div class="header-top oh" style="border: 0;">
@@ -34,6 +35,41 @@
 			<div class="banner">
 				<img src="images/schoolbanner.png">
 			</div>
+			<div class="tap-nav">
+				<div id="tapNav" class="nav">
+					<h3 class="active">精灵云博客</h3>
+					<h3>典型解决方案</h3>
+					<h3>视频教程</h3>
+				</div>
+				<div class="content">
+					<div class="info-left">
+						<p>Hi，看了精灵云的教程涨姿势了吗？如有任何问题，欢迎联系我们！联系方式：028-65785728</p>
+						<b>
+							<em>类别：</em>
+							<span class="option active">全部</span><span class="line">|</span>
+							<span class="option">Go语言</span><span class="line">|</span>
+							<span class="option">Docker</span><span class="line">|</span>
+							<span class="option">镜像</span><span class="line">|</span>
+							<span class="option">克隆</span><span class="line">|</span>
+							<span class="option">微服务架构</span><span class="line">|</span>
+							<span class="option">相关书籍</span><span class="line">|</span>
+							<span class="option">云存储</span>
+						</b>
+						<b style="padding-top: 5px">
+							<em>时间：</em>
+							<span class="option active">不限</span><span class="line">|</span>
+							<span class="option">三天内</span><span class="line">|</span>
+							<span class="option">一周内</span><span class="line">|</span>
+							<span class="option">一个月内</span><span class="line">|</span>
+							<span class="option">一年内</span><span class="line">|</span>
+						</b>
+					</div>
+					<div class="info-right">
+						<h2>Total</h2>
+						<p>1234<span>篇教程</span></p>
+					</div>
+				</div>
+			</div>
 			<div class="left">
 				<div class="option">
 					<div class="img">
@@ -50,7 +86,11 @@
 							<p class="bj">背景：</p>
 							<p class="content">自定义镜像是由用户通过镜像制作功能制作的镜像，但用户制作的镜像只有本人账户可以使用。共享自定义镜像上线后，用户可以通过自定义镜像的共享功能，将自己的自定义镜像共享......<span class="after">......</span></p>
 						</div>
-						<a class="seeall" href="#">阅读全文》</a>
+						<div class="operation">
+							<a class="red" href="">删除</a>
+							<a class="gr" href="">修改</a>
+							<a class="seeall" href="#">阅读全文》</a>
+						</div>
 					</div>
 				</div>
 				<div class="option noimg">
@@ -131,6 +171,7 @@
 					<li class="next" data-num="0"><span>next</span></li>
 				</ul>
 			</div>
+
 			<div class="right">
 				<div class="search-box">
 					<input type="text" name="search" id="search" placeholder="全文搜索"><span class="search-btn"></span>	
@@ -171,7 +212,6 @@
 		</div>
 	</div>
 	<!-- container end -->
-
 	<!-- footer -->
 	<div class="footer">
 		<div class="footer-top">
@@ -209,6 +249,13 @@
 	<script src="js/laydate.js"></script>
 	<script src="js/main.min.js"></script>
 	<!-- footer end -->
-
+	<script>
+		layer.open({
+			type: 2,
+			area: ['360px', '500px'],
+			skin: 'layui-layer-rim', //加上边框
+			content: ['http://layer.layui.com/mobile', 'no']
+		});
+	</script>
 </body>
 </html>

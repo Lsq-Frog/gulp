@@ -4,23 +4,39 @@
 	<meta charset="utf-8">
 	<title>精灵云 | 做国内最专业的容器云管理平台(内测版)</title>
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" href="css/index.min.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<!-- header -->
 	<div class="header">
-		<div class="header-top oh">
-			<div class="w1330 oh">
+		<div class="header-top">
+			<div class="w1330" style="overflow: visible">
 				<a class="header-top-logo fl" href="#"><img src="images/logo.png" title="精灵云 | 做国内最专业的容器云管理平台"></a>
-				<div class="header-top-nav oh fr">
+				<div class="header-top-nav fr">
 					<div class="h-t-nav-option"><a class="active" href="#">首页</a></div>
 					<div class="h-t-nav-option"><a href="#">控制台</a></div>
 					<div class="h-t-nav-option"><a href="#">产品</a></div>
 					<div class="h-t-nav-option"><a href="#">文档</a></div>
 					<div class="h-t-nav-option"><a href="#">精灵学院</a></div>
 					<div class="h-t-nav-option"><a href="#">加入我们</a></div>
-					<div class="h-t-nav-option"><a href="#">用户中心</a></div>
 					<div class="h-t-nav-option"><a href="#">登录</a></div>
-					<div class="h-t-nav-option"><a href="#">退出</a></div>
+					<div class="h-t-nav-option user-info">
+						<span class="user-header-img"></span><p class="user-name">Emma</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="user-manage">
+							<span class="span1"></span>
+							<span class="span2"></span>
+							<a class="first" href="#">用户中心</a>
+							<a href="#">退出</a>
+						</div>
+					</div>
+					<script>
+						$('.user-manage').find('.first').hover(function(){
+							$('.user-manage').find('.span1').css({borderBottomColor: '#6FB6F4'})
+						},function(){
+							$('.user-manage').find('.span1').css({borderBottomColor: '#1898FB'})
+						})
+					</script>
 				</div>
 			</div>
 		</div>
@@ -182,6 +198,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="propaganda-box" class="propaganda-box">
+		<img src="images/propaganda1.png">
+		<a class="btn" href="/home/login.html">公测入口</a>
 	</div>
 	<!-- container end -->
 

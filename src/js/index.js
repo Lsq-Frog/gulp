@@ -1,5 +1,10 @@
-var getLocalTime = function (nS) {
-	return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
+function add0(m) {
+    return m < 10 ? '0' + m : m 
+}
+
+function getLocalTime(nS) {
+    var time = new Date(parseInt(nS) * 1000);
+    return time.getFullYear() + '-' + add0(time.getMonth() + 1) + '-' + add0(time.getDate()) + ' ' + add0(time.getHours()) + ':' + add0(time.getMinutes()) + ':' + add0(time.getSeconds());
 }
 
 var setPage = function(pageObj, pageNum, curPage){
@@ -86,13 +91,23 @@ var setPage = function(pageObj, pageNum, curPage){
 	}
 }
 
+//限制充值金额
+var TestAmount = function(amount){
+	// if(parseInt(amount) < 10){
+	// 	layer.tips('充值费用不能小于10元！', '.amount', {
+	// 	    tips: [2,'#78BA32']
+	// 	});
+	// 	$('.amount').attr('value', '');
+	// }
+}
+
 //登录页面回车提交
 var LoginSubmit = function(event){
 	if(event.keyCode==13){
 		$(".btn-login").click();
 	}
 }
-//登录页面回车提交
+//注册页面回车提交
 var RegisterSubmit = function(event){
 	if(event.keyCode==13){
 		if(parseInt($('.register-step').attr('data-step')) == 1){
@@ -109,7 +124,7 @@ var RegisterSubmit = function(event){
 //密码修改页面回车提交
 var ChangePwdSubmit = function(event){
 	if(event.keyCode==13){
-		$('.changepwd-btn').click();
+		$('.changepwd-form').submit();
 	}
 }
 
@@ -188,6 +203,7 @@ var TipsIndex = {
 	accountTipsIndex: -1,
 	emailTipsIndex: -1,
 	telTipsIndex: -1,
+	codeImgIndex: -1,
 	codeTipsIndex: -1,
 	pwdTipsIndex: -1,
 	pwdsTipsIndex: -1,
@@ -197,7 +213,8 @@ var TipsIndex = {
 var RegistersStepOne = {
 	account: false,
 	email: false,
-	tel: false
+	tel: false,
+	codeimg: false
 }
 var RegistersStepTwo = {
 	code: false
@@ -205,7 +222,9 @@ var RegistersStepTwo = {
 
 //验证账号完整性
 var TestAccount = function(str) {
-	var reg1 = /^[0-9a-zA-Z]+$/;
+	str = str.toLowerCase();
+	$('#username').val(str);
+	var reg1 = /^[0-9a-z]+$/;
 	var reg2 = /^\d+$/;
 	if(str == ""){
 		layer.close(TipsIndex.accountTipsIndex);
@@ -216,9 +235,9 @@ var TestAccount = function(str) {
 		});
 		return false;
 	}
-	if(str.length < 6) {
+	if(str.length < 6 || str.length > 16) {
 		layer.close(TipsIndex.accountTipsIndex);
-		TipsIndex.accountTipsIndex = layer.tips('用户名过短,至少是6位字母和数字组成!', '#username', {
+		TipsIndex.accountTipsIndex = layer.tips('用户名长度不符合要求,应是6-16位字母和数字组成!', '#username', {
 			shift: -1,
 			tipsMore: true,
 			time: 0
@@ -240,7 +259,7 @@ var TestAccount = function(str) {
 	    }
 	}else {
 		layer.close(TipsIndex.accountTipsIndex);
-		TipsIndex.accountTipsIndex = layer.tips('用户名6-20位,由字母和数字组成,不能是纯数字!', '#username', {
+		TipsIndex.accountTipsIndex = layer.tips('用户名6-16位,由字母和数字组成,不能是纯数字!', '#username', {
 			shift: -1,
 			tipsMore: true,
 			time: 0
@@ -252,6 +271,7 @@ var TestAccount = function(str) {
 
 //验证用户是否存在
 function AccountIsExist(noTiShi){
+	RegistersStepOne.account = false;
 	if(TestAccount($('#username').val())){
 		$.ajax("/user/userExists/" + $("[name='username']").val(), {
 			dataType: "json",
@@ -289,14 +309,14 @@ function AccountIsExist(noTiShi){
 						RegistersStepOne.account = false;
 			        }
 			    }
-			},
+			}
 		});
 	}
 }
 
 //验证邮箱的完整性
 var TestEmail = function(str){
-	var reg = /^[_/.a-z0-9]+@[a-z0-9]+[/.][a-z0-9]{2,}$/;
+	var reg = /^[\w\.-]+?@([\w\-]+\.){1,2}[a-zA-Z]{2,3}$/;
 	if(str == ""){
 		layer.close(TipsIndex.emailTipsIndex);
 		TipsIndex.emailTipsIndex = layer.tips('邮箱不能为空!', '#useremail', {
@@ -323,8 +343,9 @@ var TestEmail = function(str){
 
 //验证邮箱是否存在
 function EmailIsExist(noTiShi){
+	RegistersStepOne.email = false;
 	if(TestEmail($('#useremail').val())){
-		$.ajax("/user/emailExists/" + $("[name='useremail']").val(), {
+		$.ajax("/user/emailExists/" + $("[name='email']").val(), {
 		    dataType: "json",
 		    type: 'GET',
 		    xhrFields: {
@@ -367,7 +388,8 @@ function EmailIsExist(noTiShi){
 
 //验证手机号码完整性
 var TestTel = function(str, noTishi){
-	var reg = /^13[\d]{9}$|^14[5,7]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0,6,7,8]{1}\d{8}$|^18[\d]{9}$/;
+	// var reg = /^13[\d]{9}$|^14[5,7]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0,3,6,7,8]{1}\d{8}$|^18[\d]{9}$/;
+	var reg = /^1\d{10}$/;
 	if(str == ""){
 		if(!noTishi){
 			layer.close(TipsIndex.telTipsIndex);
@@ -397,9 +419,10 @@ var TestTel = function(str, noTishi){
 }
 
 //验证手机是否存在
-function TelIsExist(noTiShi){
+function TelIsExist(noTiShi, isChangePwd){
+	RegistersStepOne.tel = false;
 	if(TestTel($('#usertel').val())){
-		$.ajax("/user/phoneExists/" + $("[name='usertel']").val(), {
+		$.ajax("/user/phoneExists/" + $("[name='phone']").val(), {
 		    dataType: "json",
 		    type: 'GET',
 		    xhrFields: {
@@ -416,23 +439,37 @@ function TelIsExist(noTiShi){
 					RegistersStepOne.tel = false;
 		        } else {
 		            if (!result.data.Exists) {
-		            	if(!noTiShi){
-		                	layer.close(TipsIndex.telTipsIndex);
-							TipsIndex.telTipsIndex = layer.tips('手机号可用!', '#usertel', {
+		            	if(!isChangePwd) {
+		            		if(!noTiShi){
+			                	layer.close(TipsIndex.telTipsIndex);
+								TipsIndex.telTipsIndex = layer.tips('手机号可用!', '#usertel', {
+									shift: -1,
+			                		tips: [2, '#6BC827'],
+									tipsMore: true
+								});
+			                }
+			                RegistersStepOne.tel = true;
+		            	}else {
+							layer.close(TipsIndex.telTipsIndex);
+							TipsIndex.telTipsIndex = layer.tips('账户不存在!', '#usertel', {
 								shift: -1,
-		                		tips: [2, '#6BC827'],
-								tipsMore: true
+								tipsMore: true,
+								time: 0
 							});
-		                }
-		                RegistersStepOne.tel = true;
+							RegistersStepOne.tel = false;
+		            	}
 		            } else {
-	                	layer.close(TipsIndex.telTipsIndex);
-						TipsIndex.telTipsIndex = layer.tips('手机号已注册!', '#usertel', {
-							shift: -1,
-							tipsMore: true,
-							time: 0
-						});
-						RegistersStepOne.tel = false;
+		            	if(!isChangePwd) {
+		            		layer.close(TipsIndex.telTipsIndex);
+							TipsIndex.telTipsIndex = layer.tips('手机号已注册!', '#usertel', {
+								shift: -1,
+								tipsMore: true,
+								time: 0
+							});
+							RegistersStepOne.tel = false;
+		            	}else {
+							RegistersStepOne.tel = true;
+		            	}
 		            }
 		        }
 		    },
@@ -440,8 +477,48 @@ function TelIsExist(noTiShi){
 	}
 }
 
+//验证图形验证码是否正确
+var TestCodeImg = function(str){
+	if(str == ""){
+		layer.close(TipsIndex.codeImgIndex);
+		TipsIndex.codeImgIndex = layer.tips('验证码不能为空!', '.codeimg', {
+			shift: -1,
+			tipsMore: true,
+			time: 0
+		});
+		return false;
+	}
+	return true;
+}
+
+//验证图形验证码是否正确
+function CodeImgIsExist(){
+	RegistersStepOne.codeimg = false;
+	$.ajax("/register/" + $("[name='codeimgid']").val()+"/"+$("[name='codeimgvalue']").val(), {
+	    dataType: "json",
+	    type: 'GET',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function(result) {
+	        if (result.data == 'false') {
+			    layer.close(TipsIndex.codeImgIndex);
+				TipsIndex.codeImgIndex = layer.tips('验证码错误！', '.codeimg', {
+					shift: -1,
+					tipsMore: true,
+					time: 0
+				});
+				RegistersStepOne.codeimg = false;
+	        }else {
+	        	RegistersStepOne.codeimg = true;
+	        }
+	    },
+	});
+}
+
 //验证手机验证码的正确性
 var TestCode = function(str){
+	RegistersStepTwo.code = false;
 	if(str == ""){
 		layer.close(TipsIndex.codeTipsIndex);
 		TipsIndex.codeTipsIndex = layer.tips('验证码不能为空!', '#telcode', {
@@ -450,7 +527,9 @@ var TestCode = function(str){
 			time: 0
 		});
 		return false;
+		RegistersStepTwo.code = false;
 	}
+	RegistersStepTwo.code = true;
 	return true;
 }
 //验证手机验证码的正确性
@@ -473,10 +552,37 @@ $('#telcode').on('click', function() {
 	GetCode();
 })
 $('#telcodebytel').on('click', function() {
-	GetCodeByTel();
+	if(TestCodeImg($('.codeimgvalue').val())){
+		CodeImgIsExist();
+	}else{
+		return;
+	}
+	setTimeout(function(){
+		if(RegistersStepOne.codeimg){
+			layer.close(TipsIndex.codeImgIndex);
+			GetCodeByTel();
+		}else {
+			layer.close(TipsIndex.codeImgIndex);
+			TipsIndex.codeImgIndex = layer.tips('验证码错误！', '.codeimg', {
+				shift: -1,
+				tipsMore: true,
+				time: 0
+			});
+		}
+	}, 100)
 })
 
 var GetCode = function(){
+	RegistersStepOne.code = false;
+	if(!RegistersStepOne.codeimg){
+		layer.close(TipsIndex.codeTipsIndex);
+		TipsIndex.codeTipsIndex = layer.tips('图形验证码错误!', '#telcode', {
+			shift: -1,
+			tipsMore: true,
+			time: 0
+		});
+		return;
+	}
 	var btn = $('#telcode');
 	if(btn.hasClass('disable')){
 		return;
@@ -514,6 +620,12 @@ var GetCode = function(){
 		                    dataType: "json",
 		                    success: function(result) {
 		                        if (result.err != 0) {
+		                        	layer.close(TipsIndex.codeTipsIndex);
+									TipsIndex.codeTipsIndex = layer.tips('发送失败，请重新发送!', '#telcode', {
+										shift: -1,
+										tipsMore: true,
+										time: 0
+									});
 		                            return
 		                        }
 		                        // 开始倒计时
@@ -552,6 +664,16 @@ var GetCode = function(){
 }
 
 var GetCodeByTel = function(){
+	RegistersStepOne.code = false;
+	if(!RegistersStepOne.codeimg){
+		layer.close(TipsIndex.codeTipsIndex);
+		TipsIndex.codeTipsIndex = layer.tips('图形验证码错误!', '#telcodebytel', {
+			shift: -1,
+			tipsMore: true,
+			time: 0
+		});
+		return;
+	}
 	var btn = $('#telcodebytel');
 	if(btn.hasClass('disable')){
 		return;
@@ -572,6 +694,12 @@ var GetCodeByTel = function(){
             dataType: "json",
             success: function(result) {
                 if (result.err != 0) {
+                	layer.close(TipsIndex.codeTipsIndex);
+					TipsIndex.codeTipsIndex = layer.tips('发送失败，请重新发送!', '#telcodebytel', {
+						shift: -1,
+						tipsMore: true,
+						time: 0
+					});
                     return
                 }
                 // 开始倒计时
@@ -599,6 +727,7 @@ var GetCodeByTel = function(){
 
 //验证密码正确性
 var TestPwd = function(str){
+	RegistersStepTwo.pwd = false;
 	if(str == ""){
 		layer.close(TipsIndex.pwdTipsIndex);
 		TipsIndex.pwdTipsIndex = layer.tips('密码不能为空!', '#pwd', {
@@ -666,7 +795,7 @@ var TestSPwd = function(isReturn){
 }
 
 function stepOne(){
-	if(RegistersStepOne.account && RegistersStepOne.email && RegistersStepOne.tel){
+	if(RegistersStepOne.account && RegistersStepOne.email && RegistersStepOne.tel && RegistersStepOne.codeimg){
 		return true;
 	}else{
 		return false;
@@ -774,7 +903,7 @@ $(document).ready(function() {
             }
         }
 
-		//品牌翻转
+		//微信账户登录切换
 		var turn = function(target, time, opts) {
 			target.stop().animate(opts[0], time, function() {
 				$(this).hide().siblings('.login-box').show().animate(opts[1], time, function(){
@@ -785,28 +914,28 @@ $(document).ready(function() {
 		var verticalOpts = [{ 'width': 0, 'borderColor': 'transparent'}, { 'width': '352px' }];
 		
         setLoginPos();
-        $('.btn').on('click', function() {
-        	var weixinbox = $('.by-weixin'),
-        		accountbox = $('.by-account');
-            if ($(this).hasClass('btn-by-weixin')) {
-                $('.box-1').animate({ 'marginLeft': 0 }, { queue: false, duration: 400, complete: function() {
-                	$('.btn-by-way').find('.tip').text('账户登录');
-                }});
-                 $('.msg').hide();
-                turn($('.login-box.by-account'), 100, verticalOpts);
-            } else {
-                $('.box-1').stop().animate({ 'marginLeft': '-80px' }, { queue: false, duration: 400, complete: function() {
-                	$('.btn-by-way').find('.tip').text('扫码登录');
-                }});
-                turn($('.login-box.by-weixin'), 100, verticalOpts);
-            }
+        // $('.btn').on('click', function() {
+        // 	var weixinbox = $('.by-weixin'),
+        // 		accountbox = $('.by-account');
+        //     if ($(this).hasClass('btn-by-weixin')) {
+        //         $('.box-1').animate({ 'marginLeft': 0 }, { queue: false, duration: 400, complete: function() {
+        //         	$('.btn-by-way').find('.tip').text('账户登录');
+        //         }});
+        //          $('.msg').hide();
+        //         turn($('.login-box.by-account'), 100, verticalOpts);
+        //     } else {
+        //         $('.box-1').stop().animate({ 'marginLeft': '-80px' }, { queue: false, duration: 400, complete: function() {
+        //         	$('.btn-by-way').find('.tip').text('扫码登录');
+        //         }});
+        //         turn($('.login-box.by-weixin'), 100, verticalOpts);
+        //     }
 
-        })
+        // })
         var obj = new WxLogin({
             id: "login-container",
             appid: "wx06ffb7b4e9912fca",
             scope: "snsapi_login",
-            redirect_uri: "http://www.ghostcloud.cn/weixin/login/callback",
+            redirect_uri: "https://www.ghostcloud.cn/weixin/login/callback",
             state: "",
             style: "",
             href: ""
@@ -816,20 +945,34 @@ $(document).ready(function() {
         $("#loginform").submit(function(e)
 		{
 			e.preventDefault(); //STOP default action
-			if($('.input-box').find("[name='name']").val() == "") {
+			var name = $('.input-box').find("[name='account']").val();
+			var pwd = $('.input-box').find("[name='passwd']").val();
+			if(name == "") {
 				layer.tips('用户名不能为空!', '.name', {
 					tipsMore: true
 				});
 				return false;
+			}else if(name.length > 30){
+				layer.tips('用户名过长，请检查是否输入正确!', '.name', {
+					tipsMore: true
+				});
+				return false;
 			}
-			if($('.input-box').find("[name='pwd']").val() == "") {
-			layer.tips('密码不能为空!', '.pwd', {
+
+			if(pwd == "") {
+				layer.tips('密码不能为空!', '.pwd', {
+					tipsMore: true
+				});
+				return false;
+			}else if(pwd.length > 30){
+				layer.tips('密码过长，请检查是否输入正确!', '.pwd', {
 					tipsMore: true
 				});
 				return false;
 			}
 			var postData = $(this).serializeArray();
 			var formURL = $(this).attr("action");
+			postData[1].value = md5(pwd);
 			$.ajax(
 			{
 				url : formURL,
@@ -844,7 +987,12 @@ $(document).ready(function() {
 						$('.msg').show().text(result.msg).attr('title', result.msg);
 						return;
 					}
-					window.location.href = "/home/user_info.html";
+
+					if(typeof result.data.userID == "undefined"){
+						window.location.href = result.data;
+					}else {
+						window.location.href = "/home/user_info.html";
+					}
 				},
 			});
 		});
@@ -875,10 +1023,24 @@ $(document).ready(function() {
         })
         setRegisterPos();
 
+        $('.codeimg').on('click', function(){
+        	me = $(this);
+        	$.ajax("/register/getimgcodeinfo", {
+	            type: 'GET',
+	            dataType: "json",
+	            success: function(result) {
+	            	me.find('img').attr('src', '/register/'+result.data+'.png');
+	            	$("[name='codeimgid']").val(result.data);
+	            },
+	        });
+        })
+
         $("#register-form").submit(function(e) {
             e.preventDefault(); //STOP default action
             var postData = $(this).serializeArray();
             var formURL = $(this).attr("action");
+            postData[6].value = md5($('#pwd').val());
+            postData[7].value = md5($('#pwds').val());
             $.ajax({
                 url: formURL,
                 type: "POST",
@@ -894,9 +1056,21 @@ $(document).ready(function() {
 						});
                     	return;
                     }
+                    $.ajax("/register/sendemail/" + $("[name='email']").val()+ "/"+ $("[name='username']").val(), {
+			            type: 'GET',
+			            dataType: "json",
+			            success: function(result) {
+			                console.log("邮件已发送");
+			            },
+			        });
                     // window.location.href = "/home/user_info.html";
+                    $('.step').find('.second-step-btn').addClass('disable').css({backgroundColor: '#dcdcdc'});
+                    layer.close(TipsIndex.codeTipsIndex);
+					layer.close(TipsIndex.pwdTipsIndex);
+					layer.close(TipsIndex.pwdsTipsIndex);
                     $('.register-process').find('.line-2').find('span').stop().animate({ 'width': '200px' }, { queue: false, duration: 300, complete: function() {
 	        			$('.register-process').find('.three').find('area').stop().animate({ 'width': '42px' }, { queue: false, duration: 100});
+	        			$('.register-process').find('.three').find('span').css({color: '#4DA1E7'});
 	        		}});
 	        		$('.register-step-box').stop().animate({ 'marginLeft': '-900px' }, { queue: false, duration: 400, complete: function() {}});
                 },
@@ -909,30 +1083,43 @@ $(document).ready(function() {
         		AccountIsExist(true);
         		EmailIsExist(true);
         		TelIsExist(true);
+        		if(TestCodeImg($('.codeimgvalue').val())){
+        			CodeImgIsExist();
+        		}else{
+        			return false;
+        		}
         		setTimeout(function(){
-        			console.log(RegistersStepOne)
         			if(stepOne()){
+        				layer.close(TipsIndex.emailTipsIndex);
+						layer.close(TipsIndex.accountTipsIndex);
+						layer.close(TipsIndex.telTipsIndex);
+        				layer.close(TipsIndex.codeImgIndex);
 	        			$('.register-process').find('.line-1').find('span').stop().animate({ 'width': '200px' }, { queue: false, duration: 300, complete: function() {
 		        			$('.register-process').find('.two').find('area').stop().animate({ 'width': '42px' }, { queue: false, duration: 100});
+		        			$('.register-process').find('.two').find('span').css({color: '#4DA1E7'});
 		        		}});
 		        		$('.register-step-box').stop().animate({ 'marginLeft': '-450px' }, { queue: false, duration: 400, complete: function() {}});
+	        		}else {
+	        			return false;
 	        		}
-        		},100)
+        		},500)
         	}else if($(this).hasClass('second-step-btn')) {
         		if(TestCode($('.telcode').val()) && TestPwd($('#pwd').val()) && TestSPwd()){
-        			if(stepTwo()){
+        			if(!stepTwo()){
         				layer.close(TipsIndex.codeTipsIndex);
 						TipsIndex.codeTipsIndex = layer.tips('验证码错误!', '#telcode', {
 							shift: -1,
 							tipsMore: true,
 							time: 0
 						});
-						return;
-        			}else {
+						return false;
+        			}else if(!$(this).hasClass('disable')) {
         				$("#register-form").submit();
+        				return true;
         			}
         		}
         	}
+        	return false;
         })
     }
 
@@ -940,9 +1127,12 @@ $(document).ready(function() {
     if($('.user-changepwd-box').length > 0) {
     	$("#changepwd-form").submit(function(e) {
     	    e.preventDefault(); //STOP default action
-    	    var postData = $(this).serializeArray();
-    	    var formURL = $(this).attr("action");
     	    if(TestOldPwd($('#oldpwd').val()) && TestPwd($('#pwd').val()) && TestSPwd()){
+				var postData = $(this).serializeArray();
+				var formURL = $(this).attr("action");
+				postData[0].value = md5($('#oldpwd').val());
+				postData[1].value = md5($('#pwd').val());
+				postData[2].value = md5($('#pwds').val());
 	    	    $.ajax({
 	    	        url: formURL,
 	    	        type: "POST",
@@ -960,19 +1150,18 @@ $(document).ready(function() {
 								time: 0
 							});
 	    	                return;
+	    	            }else {
+	    	            	layer.alert('修改密码成功', {
+						        skin: 'layui-layer-lan',
+						        closeBtn: 0,
+						        shift: 2 //动画类型
+						    });
+						    $('#changepwd-form')[0].reset();
 	    	            }
-	    	            layer.alert('修改密码成功', {
-					        skin: 'layui-layer-lan',
-					        closeBtn: 0,
-					        shift: 2 //动画类型
-					    });
 	    	        },
 	    	    });
 	    	}
     	});
-    	$('.changepwd-btn').on('click', function(){
-    		$("#changepwd-form").submit();
-    	})
     }
 
     //忘记密码
@@ -996,11 +1185,24 @@ $(document).ready(function() {
         })
         setRegisterPos();
 
+        $('.codeimg').on('click', function(){
+        	me = $(this);
+        	$.ajax("/register/getimgcodeinfo", {
+	            type: 'GET',
+	            dataType: "json",
+	            success: function(result) {
+	            	me.find('img').attr('src', '/register/'+result.data+'.png');
+	            	$("[name='codeimgid']").val(result.data);
+	            },
+	        });
+        })
+
 		$("#changepwd-form").submit(function(e) {
 		    e.preventDefault(); //STOP default action
-
 		    var postData = $(this).serializeArray();
 		    var formURL = $(this).attr("action");
+		    postData[4].value = md5($('#pwd').val());
+			postData[5].value = md5($('#pwds').val());
 		    $.ajax({
 		        url: formURL,
 		        type: "POST",
@@ -1028,20 +1230,26 @@ $(document).ready(function() {
 		    });
 		});
 		$('.changepwd-btn').on('click', function(){
-			TelIsExist(true);
-			if(RegistersStepOne.tel && TestCode2($('.telcode').val()) && TestPwd($('#pwd').val()) && TestSPwd()){
-				if(stepTwo()){
-    				layer.close(TipsIndex.codeTipsIndex);
-					TipsIndex.codeTipsIndex = layer.tips('验证码错误!', '#telcodebytel', {
-						shift: -1,
-						tipsMore: true,
-						time: 0
-					});
-					return;
-    			}else {
-    				$("#changepwd-form").submit();
-    			}
-			}
+			TelIsExist(true, true);
+			// return true;
+			setTimeout(function(){
+				if(RegistersStepOne.tel && TestCode2($('.telcode').val()) && TestPwd($('#pwd').val()) && TestSPwd()){
+					if(stepTwo()){
+	    				layer.close(TipsIndex.codeTipsIndex);
+						TipsIndex.codeTipsIndex = layer.tips('验证码错误!', '#telcodebytel', {
+							shift: -1,
+							tipsMore: true,
+							time: 0
+						});
+						return false;
+	    			}else {
+	    				$("#changepwd-form").submit();
+	    				return true;
+	    			}
+				}
+				return false;
+			}, 1000)
+			return false;
 		})
 	}
 
@@ -1058,8 +1266,9 @@ $(document).ready(function() {
 	        var start = {
 	            elem: '#start',
 	            format: 'YYYY-MM-DD',
-	            max: '2099-06-16 23:59:59', //最大日期
-	            istime: true,
+	            min: '2016-01-01',
+	            max: laydate.now(), //最大日期
+	            imtime: true,
 	            istoday: false,
 	            choose: function(datas) {
 	                end.min = datas; //开始日选好后，重置结束日的最小日期
@@ -1069,8 +1278,8 @@ $(document).ready(function() {
 	        var end = {
 	            elem: '#end',
 	            format: 'YYYY-MM-DD',
-	            max: '2099-06-16 23:59:59',
-	            istime: true,
+    			max: laydate.now(),
+	            imtime: true,
 	            istoday: false,
 	            choose: function(datas) {
 	                start.max = datas; //结束日选好后，重置开始日的最大日期
@@ -1107,6 +1316,7 @@ $(document).ready(function() {
 			        }
 			        setPage($('.page'), parseInt(orderInfo.length/num+0.5), page)
 			    }
+				setPageClick();
 			}
 
 			$('.search-btn').on('click', function() {
@@ -1116,6 +1326,22 @@ $(document).ready(function() {
 			        $('.records').attr('data-page', 1);
 			        var data = eval('(' + result + ')').data;
 			        var index = 0;
+			        if(data.Orders.length <= 0){
+			        	$('.page').html("").show();
+			        	var str = '<p class="order-no w240">订单号</p>'+
+							'<p class="order-info w280">订单信息</p>'+
+							'<p class="order-status w80">订单状态</p>'+
+							'<p class="order-ctime w160">订单创建时间</p>'+
+							'<p class="order-playway w80">支付方式</p>'+
+							'<p class="order-amount w100">支付金额</p>';
+			        	$('.records').html("").append('<div class="record-title">' + str + '</div>');
+			        	layer.alert('该时间段内未查询到账单信息！', {
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 0
+						})
+			        	return;
+			        }
+			        orderInfo.length = 0;
 			        $.each(data.Orders, function(idx, val) {
 			            if (val.OrderID) {
 			                orderInfo[index++] = val;
@@ -1125,46 +1351,51 @@ $(document).ready(function() {
 			        showOrderByPage(orderInfo, page, showlen)
 			    });
 			})
-			$('.page').find('li').on('click', function(){
-				var curpage = $('.records').attr('data-page');
-				if($(this).hasClass('prev')){
-					if(curpage-1 <= 0){
+			function setPageClick(){
+				$('.page').find('li').on('click', function(){
+					var curpage = parseInt($('.records').attr('data-page'));
+					if($(this).hasClass('prev')){
+						if(curpage-1 <= 0){
+							return;
+						}
+						showOrderByPage(orderInfo, curpage - 1, showlen);
+						$('.records').attr('data-page', curpage - 1);
+					}else if($(this).hasClass('next')) {
+						if((curpage+1) > parseInt(orderInfo.length/showlen+0.5)){
+							return;
+						}
+						showOrderByPage(orderInfo, curpage + 1, showlen);;
+						$('.records').attr('data-page', curpage + 1);
+					}else if($(this).hasClass('more-page')) {
 						return;
+					}else {
+						curpage = $(this).attr('data-num');
+						if(curpage <= 0 || curpage > parseInt(orderInfo.length/showlen+0.5)){
+							return;
+						}
+						showOrderByPage(orderInfo, curpage, showlen);
+						$('.records').attr('data-page', curpage);
 					}
-					showOrderByPage(orderInfo, curpage - 1, showlen);
-					$('.records').attr('data-page', curpage - 1);
-				}else if($(this).hasClass('next')) {
-					if(curpage+1 > parseInt(orderInfo.length/showlen+0.5)){
-						return;
-					}
-					showOrderByPage(orderInfo, curpage + 1, showlen);
-					$('.records').attr('data-page', curpage + 1);
-				}else if($(this).hasClass('more-page')) {
-					return;
-				}else {
-					curpage = $(this).attr('data-num');
-					if(curpage <= 0 || curpage > parseInt(orderInfo.length/showlen+0.5)){
-						return;
-					}
-					showOrderByPage(orderInfo, curpage, showlen);
-					$('.records').attr('data-page', curpage);
-				}
-			})
+				})
+			}
 	    }
 
 	    //用户充值
 	    if($('.user-recharge-box').length > 0){
 
-	    	if(typeof(userInfo) != "undefined" && typeof(userInfo.data) != "undefined" && typeof(userInfo.data.UserInfo) != "undefined"){
-	    		if(typeof(userInfo.data.UserInfo.remain) != "undefined"){
-					$('.user-recharge-one').find('.title').find('em').text(userInfo.data.UserInfo.remain/100.00);
+	    	if(userInfo != ""){
+	    		if(typeof(userInfo.remain) != "undefined"){
+					$('.user-recharge-one').find('.title').find('em').text(userInfo.remain/100.00);
 				}else {
-					$('.user-recharge-one').find('.title').find('em').text('00.00');
+					$('.user-recharge-one').find('.title').find('em').text('00.00' + "元");
 				}
 	    	}
 	    	
 	        //匹配用户输入信息
 	        function clearNoNum(obj){
+	        	if(obj.val().length > 8) {
+	        		obj.val((obj.val()).substring(0,8));
+	        	}
 				obj.val(obj.val().replace(/[^\d.]/g,"")); //清除"数字"和"."以外的字符
 				obj.val(obj.val().replace(/^\./g,"")); //验证第一个字符是数字而不是
 				obj.val(obj.val().replace(/\.{2,}/g,".")); //只保留第一个. 清除多余的
@@ -1209,19 +1440,43 @@ $(document).ready(function() {
 				}else {
 					var fee = $("[name='amount']").val();
 				    if (fee > 0) {
+				    	var loading = layer.msg('加载中', {icon: 16});
 				        $.get('/order/weixinpay/create/' + fee, function(result) {
 				            var results = eval('(' + result + ')')
 				            if (results.err == 0) {
 				                // gen qrcode on page
-				                $('#weixinpay-qrcode').qrcode({ width: 256, height: 256, text: results.data });
+				                layer.close(loading);
+				                $('.weixinpay-qrcode-box').find('#weixinpay-qrcode').html("");
+				                $('#weixinpay-qrcode').qrcode({ width: 256, height: 256, text: results.data.codeURL });
+
+				                var timer = null;
 				                layer.open({
 								    type: 1,
 								    title: false,
 								    closeBtn: 1,
 								    skin: 'layui-layer-nobg', //没有背景色
 								    shadeClose: true,
-								    content: $('.weixinpay-qrcode-box')
+								    content: $('.weixinpay-qrcode-box'),
+									end : function(){
+										//do something
+										clearInterval(timer);
+									}
 								});
+								var timer = setInterval(function(){
+									$.ajax("/order/checkorder/" + results.data.OrderID, {
+									    dataType: "json",
+									    type: 'GET',
+									    xhrFields: {
+									        withCredentials: true
+									    },
+									    success: function(result) {
+									        if (result.data.IsPaid) {
+											    clearInterval(timer);
+											    window.location.href = "/home/user_info.html";
+									        }
+									    },
+									});
+								},3000)
 				            } else {
 				                layer.alert(results.msg, {icon: 5});
 				            }
@@ -1235,26 +1490,47 @@ $(document).ready(function() {
 			});
 	    }
 	    //用户信息
-	    if(typeof(userInfo) != "undefined" && typeof(userInfo.data) != "undefined" && typeof(userInfo.data.UserInfo) != "undefined"){
-	    	if(typeof(userInfo.data.UserInfo.username) != "undefined"){
-				$('#userName').find('p').text(userInfo.data.UserInfo.username);
+	    if(userInfo != ""){
+	    	if(typeof(userInfo.username) != "undefined"){
+				$('#userName').find('p').text(userInfo.username);
+				$('.user-info-two').find('.title').text(userInfo.username+'的消费记录');
+				$('.user-bill-one').find('.shows').text(userInfo.username+'的充值信息');
 			}
-			if(typeof(userInfo.data.UserInfo.remain) != "undefined"){
-				$('.user-balance').find('.content').find('em').text(userInfo.data.UserInfo.remain/100.00);
+			if(typeof(userInfo.remain) != "undefined"){
+				$('.user-balance').find('.content').find('em').text(userInfo.remain/100.00+'元');
 			}else {
-				$('.user-balance').find('.content').find('em').text('00.00');
+				$('.user-balance').find('.content').find('em').text('00.00'+'元');
 			}
-			if(typeof(userInfo.data.UserInfo.lastlogintime) != "undefined"){
-				$('#lasttime').find('p').text(getLocalTime(userInfo.data.UserInfo.lastlogintime));
+			if(typeof(userInfo.lastlogintime) != "undefined"){
+				$('#lasttime').find('p').text(getLocalTime(userInfo.lastlogintime));
 			}
-			if(typeof(userInfo.data.UserInfo.mail) != "undefined"){
-				$('#useremail').find('p').text(userInfo.data.UserInfo.mail);
+			if(typeof(userInfo.mail) != "undefined"){
+				$('#useremail').find('p').text(userInfo.mail);
 			}
-			if(typeof(userInfo.data.UserInfo.phonenum) != "undefined"){
-				$('#usertel').find('p').text(userInfo.data.UserInfo.phonenum);
+			if(typeof(userInfo.phonenum) != "undefined"){
+				$('#usertel').find('p').text(userInfo.phonenum);
+			}
+			if(typeof(userInfo.waterlevel) != "undefined"){
+				$('.trigger').find('option[value='+parseInt(userInfo.waterlevel)/100+']').attr("selected",true);
 			}
 	    }
 	    //获取主机信息
+
+	    function GetTimeToString(time){
+	    	var dtime = 0, htime = 0, mtime = 0;
+	    	if(time/60 >= 1){	
+	    		htime = parseInt(time / 60);
+	    		mtime = parseInt(time % 60);
+	    		if(htime / 24 >= 1){
+	    			dtime = parseInt(htime / 24);
+	    			htime = parseInt(htime % 24);
+	    		}
+	    	}else {
+	    		mtime = parseInt(time);
+	    	}
+	    	return dtime+"天"+htime+"小时"+mtime+"分钟";
+	    }
+
 	    function getOverView(){
 		    $.get('/center/overview/', function(result) {
 		        var rows = $('.user-info-two').find('.row');
@@ -1264,28 +1540,36 @@ $(document).ready(function() {
 		        var tCosts = 0;
 		        $.each(data.UserCenterInfo, function(idx, val) {
 		            var name = "";
+
 		            switch (parseInt(val.HostType)) {
-		                case 1:
-		                    $($(rows[2]).find('.col')[1]).find('p').text(val.HostNum);
-		                    $($(rows[2]).find('.col')[2]).find('p').text(val.HostOnlineTime);
-		                    $($(rows[2]).find('.col')[3]).find('p').text(val.HostCosts);
-		                    break;
 		                case 2:
-		                	$($(rows[1]).find('.col')[1]).find('p').text(val.HostNum);
-		                    $($(rows[1]).find('.col')[2]).find('p').text(val.HostOnlineTime);
-		                    $($(rows[1]).find('.col')[3]).find('p').text(val.HostCosts);
+		                	//$($(rows[1]).find('.col')[1]).hide().find('p').text(val.HostNum);
+
+		                    $($(rows[1]).find('.col')[1]).find('p').text(GetTimeToString(val.HostOnlineTime));
+		                    $($(rows[1]).find('.col')[2]).find('p').text((val.HostCosts.toFixed(0)/100.00).toFixed(2)+'元');
+							tNums += parseInt(val.HostNum);
+							tTimes += parseInt(val.HostOnlineTime);
+							tCosts += val.HostCosts.toFixed(0)/100.00;
 		                    break;
 		                case 3:
-		                    $($(rows[0]).find('.col')[1]).find('p').text(val.HostNum);
-		                    $($(rows[0]).find('.col')[2]).find('p').text(val.HostOnlineTime);
-		                    $($(rows[0]).find('.col')[3]).find('p').text(val.HostCosts);
+		                    //$($(rows[0]).find('.col')[1]).hide().find('p').text(val.HostNum);
+		                    $($(rows[0]).find('.col')[1]).find('p').text(GetTimeToString(val.HostOnlineTime));
+		                    $($(rows[0]).find('.col')[2]).find('p').text((val.HostCosts.toFixed(0)/100.00).toFixed(2)+'元');
+							tNums += parseInt(val.HostNum);
+							tTimes += parseInt(val.HostOnlineTime);
+							tCosts += val.HostCosts.toFixed(0)/100.00;
+		                    break;
+		                case 4:
+		                    //$($(rows[2]).find('.col')[1]).hide().find('p').text(val.HostNum);
+		                    $($(rows[2]).find('.col')[1]).find('p').text(GetTimeToString(val.HostOnlineTime));
+		                    $($(rows[2]).find('.col')[2]).find('p').text((val.HostCosts.toFixed(0)/100.00).toFixed(2)+'元');
+							tNums += parseInt(val.HostNum);
+							tTimes += parseInt(val.HostOnlineTime);
+							tCosts += val.HostCosts.toFixed(0)/100.00;
 		                    break;
 		            }
-		            tNums += parseInt(val.HostNum);
-		            tTimes += parseInt(val.HostOnlineTime);
-		            tCosts += parseInt(val.HostCosts);
 		        })
-		        $(rows[3]).find('.col').find('p').text(tCosts);
+		        $(rows[3]).find('.col').find('p').text(tCosts.toFixed(2)+'元');
 		    });
     	}
 	    if($('.user-info-two').length > 0){
@@ -1301,3 +1585,270 @@ $(document).ready(function() {
     	})
     }
 })
+
+function postJumpUrl(URL, PARAMS) {        
+    var temp = document.createElement("form");        
+    temp.action = URL;        
+    temp.method = "post";        
+    temp.style.display = "none";        
+    for (var x in PARAMS) {        
+        var opt = document.createElement("textarea");        
+        opt.name = x;        
+        opt.value = PARAMS[x];        
+        // alert(opt.name)        
+        temp.appendChild(opt);        
+    }        
+    document.body.appendChild(temp);        
+    temp.submit();        
+    return temp;        
+}
+
+//可拖动进度条
+scale=function (btn,bar,show,title,callback1, callback2){
+	this.btn=document.getElementById(btn);
+	this.bar=document.getElementById(bar);
+	this.title=document.getElementById(title);
+	this.step=document.getElementById(show);
+	this.parts=$('#'+show).siblings('part');
+	this.init(callback1, callback2);
+};
+scale.prototype={
+	init:function (callback1, callback2){
+		var f=this,g=document,b=window,m=Math;
+		f.btn.onmousedown=function (e){
+			var x=(e||b.event).clientX;
+			var l=this.offsetLeft;
+			var max=f.bar.offsetWidth-this.offsetWidth;
+			var to = m.min(max,m.max(0,l));
+			g.onmousemove=function (e){
+				var thisX=(e||b.event).clientX;
+				to=m.min(max,m.max(0,l+(thisX-x)));
+				f.btn.style.left=to+'px';
+				callback2(f,m.round(m.max(0,to/max)*100),to);
+				b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
+			};
+			g.onmouseup = function(e){
+				g.onmousemove=null;
+				callback1(f,m.round(m.max(0,to/(max))*100),to);
+			}
+		};
+	}
+};
+
+//Caas价格表，单位元
+var CaasPriceList = {
+	Area: ['北京大区', '深圳大区', '杭州大区','成都大区',],
+	Disk: ['20G'],
+	CPU: ['1核', '2核', '4核', '8核', '16核'],
+	Memory: ['64MB', '128MB', '256MB', '512MB', '1GB', '2GB', '4GB', '8GB', '16GB', '32GB'],
+	getArea: function(index ) {
+		var area = [1.00, 2.00, 3.00, 4.00];
+		return	[CaasPriceList.Area[index], area[index]];
+	},
+	getDisk: function(index) {
+		var disk = [1.00];
+		return	[CaasPriceList.Disk[index], disk[index]];
+	},
+	getCPU: function(index) {
+		var cpu = [1.00, 2.00, 3.00, 4.00, 5.00];
+		return	[CaasPriceList.CPU[index], cpu[index]];
+	},
+	getMemory: function(index, memory){
+		return [CaasPriceList.Memory[index], 10.00*memory];
+	},
+	getBandWidth: function(bandwidth){
+		return [bandwidth+'Mbps', 1.00*bandwidth];
+	},
+	getLoadBalancing: function(open){
+		return 0;
+	}
+};
+//Paas价格表，单位元
+var PaasPriceList = {
+	Area: ['北京大区', '深圳大区', '杭州大区','成都大区',],
+	Disk: [0],
+	CPU: ['1核', '2核', '4核', '8核', '16核'],
+	Memory: ['64MB', '128MB', '256MB', '512MB', '1GB', '2GB', '4GB', '8GB', '16GB', '32GB'],
+	getArea: function(index ) {
+		var area = [1.00, 2.00, 3.00, 4.00];
+		return	[PaasPriceList.Area[index], area[index]];
+	},
+	getDisk: function(index) {
+		var disk = [1.00];
+		return	[0, 0];
+	},
+	getCPU: function(index) {
+		var cpu = [1.00, 2.00, 3.00, 4.00, 5.00];
+		return	[PaasPriceList.CPU[index], cpu[index]];
+	},
+	getMemory: function(index, memory){
+		return [PaasPriceList.Memory[index], 10.00*memory];
+	},
+	getBandWidth: function(bandwidth){
+		return [0, 0];
+	},
+	getLoadBalancing: function(open){
+		return 0;
+	}
+};
+//GWS服务价格表，单位元
+var CWSPriceList = {
+	getArea: function(index ) {
+		return [0,0];
+	},
+	getDisk: function(index) {
+		return [0,0];
+	},
+	getCPU: function(index) {
+		return [0,0];
+	},
+	getMemory: function(memory){
+		return [0,0];
+	},
+	getBandWidth: function(bandwidth){
+		return [0,0];
+	},
+	getLoadBalancing: function(open){
+		if(open == 0){
+			return 0;
+		}
+		return 20.00;
+	}
+};
+
+//计算花费
+var getcharge = function() {
+	//价格表
+	this.PriceList = {};
+	//费用，单位元
+	this.Cost = {
+		//配置费用
+		Area: 0.00,                     //地域
+		Disk: 0.00,                     //磁盘大小，单位G
+		CPU: 0.00,                      //CUP核数
+		Memory: 0.00,                   //内存
+		BandWidth: 0.00,                	//带宽
+		//服务费用
+		LoadBalancing: 0.00   	        //负载均衡
+	};
+	//容器/主机/应用个数
+	this.num = 1; 						//容器数量
+	//操作对象
+	this.Obj = {};
+};
+getcharge.prototype = {
+	initCharge: function(priceList, cost, objs, callbackMemoryDrag, callbackBandWidthDrag){
+		me = this;
+		me.PriceList = priceList;
+		me.Cost = cost;
+		me.Obj = objs;
+		me.updataCharge();
+		me.setSelectObj('Area', me.PriceList.getArea);
+		me.setSelectObj('Disk', me.PriceList.getDisk);
+		me.setSelectObj('CPU', me.PriceList.getCPU);
+		me.setDragObj('Memory', callbackMemoryDrag);
+		me.setDragObj('BandWidth', callbackBandWidthDrag);
+		me.setLoadBalancing(me.PriceList.getLoadBalancing);
+		me.setContainersEvent();
+	},
+	updataCharge: function() {
+		me = this;
+		var charge = 0;
+		for (var m in me.Cost) {
+			charge+=me.Cost[m];
+		}
+		$(me.Obj.ChargeResult).text((charge*me.num).toFixed(3));
+	},
+	setSelectObj: function (strName, callback) {
+		var me = this, a = $(me.Obj[strName]);
+		a.on('click', function () {
+			if ($(this).hasClass('active')) return;
+			var idx = a.index(this);
+			if (typeof callback == 'function') {
+				var r = callback(idx);
+				me.Cost[strName] = r[1];
+				$(me.Obj.Result).find('.'+strName).text(r[0]);
+				me.updataCharge();
+			}
+			$(this).addClass('active').siblings(me.Obj[strName]).removeClass('active');
+		});
+	},
+
+	setDragObj: function (strName, callback){
+		var me = this, a = $(me.Obj[strName]);
+		if(typeof callback == 'function'){
+			callback();
+		}
+	},
+
+	setLoadBalancing: function (callback) {
+		var me = this, a = $(me.Obj.LoadBalancing);
+		a.on('click', function () {
+			me.Cost.LoadBalancing = callback(parseInt($(this).attr('data-open')));
+			if(parseInt($(this).attr('data-open')) == 0) {
+				$(me.Obj.Result).find('.LoadBalancing').text('关闭');
+			}else {
+				$(me.Obj.Result).find('.LoadBalancing').text('开启');
+			}
+			me.updataCharge();
+		});
+	},
+	setContainersEvent: function () {
+		var me = this;
+		$(me.Obj.Num).find('span').on('click', function () {
+			var num = parseInt($(me.Obj.Num).attr('data-num'));
+			if ($(this).hasClass('sub')) {
+				if (num - 1 > 0) {
+					$(me.Obj.Num).find('.num').val(num - 1);
+					$(me.Obj.Num).attr('data-num', num - 1);
+					me.num = num - 1;
+					me.updataCharge();
+					if (num <= 500) {
+						$(me.Obj.Num).find('.add').removeClass('disable');
+					}
+				} else {
+					$(this).addClass('disable');
+				}
+			}
+			if ($(this).hasClass('add')) {
+				if (num + 1 >= 500) {
+					$(this).addClass('disable');
+					num = 499;
+				}
+				$(me.Obj.Num).find('.num').val(num + 1);
+				$(me.Obj.Num).attr('data-num', num + 1);
+				me.num = num + 1;
+				me.updataCharge();
+				if (num + 1 >= 2) {
+					$(me.Obj.Num).find('.sub').removeClass('disable');
+				}
+			}
+		});
+		$(me.Obj.Num).find('.num').on('blur keyup', function (e) {
+			var num = $(this).val(), reg = /^\d+$/g;
+			if (!reg.test(num)) {
+				if (num == "") {
+					num = 1;
+				} else {
+					num = $(me.Obj.Num).attr('data-num');
+				}
+			}
+			if (num <= 1) {
+				num = 1;
+				$(me.Obj.Num).find('.sub').addClass('disable');
+				$(me.Obj.Num).find('.add').removeClass('disable');
+			} else if (num >= 500) {
+				num = 500;
+				$(me.Obj.Num).find('.add').addClass('disable');
+				$(me.Obj.Num).find('.sub').removeClass('disable');
+			} else {
+				$(me.Obj.Num).find('.add').removeClass('disable');
+				$(me.Obj.Num).find('.sub').removeClass('disable');
+			}
+			$(this).val(num);
+			me.num = num;
+			$(me.Obj.Num).attr('data-num', num);
+			me.updataCharge();
+		});
+	}
+};

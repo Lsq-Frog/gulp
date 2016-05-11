@@ -24,6 +24,8 @@ th,
 td {
   margin: 0;
   padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 img {
   border: 0 none;
@@ -119,6 +121,12 @@ a:focus {
   margin: auto;
   width: 1330px;
   min-width: 1330px;
+}
+.w1190 {
+  overflow: hidden;
+  margin: auto;
+  width: 1190px;
+  min-width: 1190px;
 }
 .oh {
   overflow: hidden;
