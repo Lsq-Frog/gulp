@@ -629,11 +629,11 @@ var GetCode = function(){
 		                            return
 		                        }
 		                        // 开始倒计时
-		                        var seconds = 120;
+		                        var seconds = 60;
 		                        timer = setInterval(function() {
 		                            btn.addClass('disable').text("重新发送(" + seconds + ")");
 		                            seconds--;
-		                            if (seconds == 0) {
+		                            if (seconds <= 0) {
 		                                clearInterval(timer);
 		                               	btn.removeClass('disable').text("重新发送");
 		                            }
@@ -1637,7 +1637,7 @@ scale.prototype={
 
 //Caas价格表，单位元
 var CaasPriceList = {
-	Area: ['北京大区', '深圳大区', '杭州大区','成都大区',],
+	Area: ['北京大区', '深圳大区', '杭州大区','成都大区'],
 	Disk: ['20G'],
 	CPU: ['1核', '2核', '4核', '8核', '16核'],
 	Memory: ['64MB', '128MB', '256MB', '512MB', '1GB', '2GB', '4GB', '8GB', '16GB', '32GB'],
@@ -1665,7 +1665,7 @@ var CaasPriceList = {
 };
 //Paas价格表，单位元
 var PaasPriceList = {
-	Area: ['北京大区', '深圳大区', '杭州大区','成都大区',],
+	Area: ['北京大区', '深圳大区', '杭州大区','成都大区'],
 	Disk: [0],
 	CPU: ['1核', '2核', '4核', '8核', '16核'],
 	Memory: ['64MB', '128MB', '256MB', '512MB', '1GB', '2GB', '4GB', '8GB', '16GB', '32GB'],

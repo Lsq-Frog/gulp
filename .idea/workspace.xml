@@ -2,48 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41c42473-d06b-48e0-a46b-38d4fc3d46f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/icon1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/less/font/fz.TTF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ghostcloud_charge1.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/css/main.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/main.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/weixinloginewm.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/images/ewm.jpg" afterPath="$PROJECT_DIR$/dist/images/ewm.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/images/headerlogininfo.png" afterPath="$PROJECT_DIR$/dist/images/headerlogininfo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/images/user/userheader.png" afterPath="$PROJECT_DIR$/dist/images/user/userheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/images/user/userinfoheader.png" afterPath="$PROJECT_DIR$/dist/images/user/userinfoheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/images/userloginheader.png" afterPath="$PROJECT_DIR$/dist/images/userloginheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/ewm.jpg" afterPath="$PROJECT_DIR$/src/images/ewm.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/headerlogininfo.png" afterPath="$PROJECT_DIR$/src/images/headerlogininfo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/user/userheader.png" afterPath="$PROJECT_DIR$/src/images/user/userheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/user/userinfoheader.png" afterPath="$PROJECT_DIR$/src/images/user/userinfoheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/userloginheader.png" afterPath="$PROJECT_DIR$/src/images/userloginheader.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/change_password.html" afterPath="$PROJECT_DIR$/dist/change_password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/ghostcloud_school.html" afterPath="$PROJECT_DIR$/dist/ghostcloud_school.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/login.html" afterPath="$PROJECT_DIR$/dist/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/product_application.html" afterPath="$PROJECT_DIR$/dist/product_application.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/register.html" afterPath="$PROJECT_DIR$/dist/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/user_bill.html" afterPath="$PROJECT_DIR$/dist/user_bill.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/user_info.html" afterPath="$PROJECT_DIR$/dist/user_info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header-nav.less" afterPath="$PROJECT_DIR$/header-nav.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.less" afterPath="$PROJECT_DIR$/main.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/change_password.html" afterPath="$PROJECT_DIR$/src/change_password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ghostcloud_school.html" afterPath="$PROJECT_DIR$/src/ghostcloud_school.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/index.css" afterPath="$PROJECT_DIR$/src/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ghostcloud_charge.html" afterPath="$PROJECT_DIR$/src/ghostcloud_charge.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/index.js" afterPath="$PROJECT_DIR$/src/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/less/index.less" afterPath="$PROJECT_DIR$/src/less/index.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/less/main.less" afterPath="$PROJECT_DIR$/src/less/main.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login.html" afterPath="$PROJECT_DIR$/src/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/product_application.html" afterPath="$PROJECT_DIR$/src/product_application.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/register.html" afterPath="$PROJECT_DIR$/src/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_bill.html" afterPath="$PROJECT_DIR$/src/user_bill.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_info.html" afterPath="$PROJECT_DIR$/src/user_info.html" />
     </list>
     <ignored path="gc-gulp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +38,8 @@
       <file leaf-file-name="index.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/less/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0588236">
-              <caret line="3501" column="40" selection-start-line="3501" selection-start-column="24" selection-end-line="3501" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3660" column="25" selection-start-line="3660" selection-start-column="25" selection-end-line="3660" selection-end-column="25" />
               <folding>
                 <element signature="e#62103#62705#0" expanded="false" />
               </folding>
@@ -84,21 +47,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="16.508278">
-              <caret line="1621" column="41" selection-start-line="1621" selection-start-column="41" selection-end-line="1621" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="823" column="5" selection-start-line="823" selection-start-column="5" selection-end-line="823" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ghostcloud_charge.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ghostcloud_charge.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ghostcloud_charge.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0">
-              <caret line="112" column="72" selection-start-line="112" selection-start-column="72" selection-end-line="112" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.37304077">
+              <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -192,7 +155,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1924" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -245,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -384,7 +347,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches">
         <subPane>
           <PATH>
@@ -403,6 +365,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,7 +373,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
@@ -889,40 +852,47 @@
       <workItem from="1461736936400" duration="16741000" />
       <workItem from="1462245707642" duration="3204000" />
       <workItem from="1462333824962" duration="3189000" />
-      <workItem from="1462759427384" duration="72346000" />
+      <workItem from="1462759427384" duration="76471000" />
+      <workItem from="1463017046386" duration="1364000" />
+      <workItem from="1463024694886" duration="618000" />
+      <workItem from="1463026885616" duration="949000" />
+      <workItem from="1463033570144" duration="759000" />
+      <workItem from="1463034343531" duration="524000" />
+      <workItem from="1463035076549" duration="694000" />
+      <workItem from="1463035794405" duration="1003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134113000" />
+    <option name="totallyTimeSpent" value="144149000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25027084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24918744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20309168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2027897" sideWeight="0.4949495" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2027897" sideWeight="0.5050505" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -968,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="257" column="11" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,7 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="269" column="11" selection-start-line="269" selection-start-column="11" selection-end-line="269" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="269" column="11" selection-start-line="269" selection-start-column="11" selection-end-line="269" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,7 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="269" column="11" selection-start-line="269" selection-start-column="11" selection-end-line="269" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,7 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="269" column="11" selection-start-line="269" selection-start-column="11" selection-end-line="269" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,7 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,7 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8888888">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,7 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1923075">
           <caret line="32" column="53" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="29" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,7 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,9 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="7" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1264,9 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="148" column="26" selection-start-line="45" selection-start-column="4" selection-end-line="148" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1274,9 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.3076923">
           <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#th#1;n#tr#0;n#table#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1284,10 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="136.66667">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#866#1341#1" expanded="false" />
-            <element signature="e#60061#62372#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1321,7 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4588234">
           <caret line="3577" column="12" selection-start-line="3577" selection-start-column="12" selection-end-line="3577" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,18 +1280,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/less/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0588236">
-          <caret line="3501" column="40" selection-start-line="3501" selection-start-column="24" selection-end-line="3501" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3660" column="25" selection-start-line="3660" selection-start-column="25" selection-end-line="3660" selection-end-column="25" />
           <folding>
             <element signature="e#62103#62705#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="823" column="5" selection-start-line="823" selection-start-column="5" selection-end-line="823" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ghostcloud_charge.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0">
-          <caret line="112" column="72" selection-start-line="112" selection-start-column="72" selection-end-line="112" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.37304077">
+          <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1377,14 +1330,6 @@
             <element signature="n#style#0;n#div#5;n#div#0;n#div#3;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="16.508278">
-          <caret line="1621" column="41" selection-start-line="1621" selection-start-column="41" selection-end-line="1621" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
