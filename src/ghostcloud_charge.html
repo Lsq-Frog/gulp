@@ -107,6 +107,7 @@
                                     </div>
                                     <div class="scale">
                                         <div id="show" style="width: 182px;"></div>
+                                        <part class="part m-partb"></part>
                                         <part class="part m-part1 active"></part>
                                         <part class="part m-part2 active"></part>
                                         <part class="part m-part3 active"></part>
@@ -115,6 +116,7 @@
                                         <part class="part m-part6"></part>
                                         <part class="part m-part7"></part>
                                         <part class="part m-part8"></part>
+                                        <part class="part m-parte"></part>
                                     </div>
                                 </div>
                                 <div class="scale-info" id="memory"><span>1</span>GB</div>
@@ -221,6 +223,7 @@
                                     </div>
                                     <div class="scale">
                                         <div id="show2" style="width: 182px;"></div>
+                                        <part class="part m-partb"></part>
                                         <part class="part m-part1 active"></part>
                                         <part class="part m-part2 active"></part>
                                         <part class="part m-part3 active"></part>
@@ -229,6 +232,7 @@
                                         <part class="part m-part6"></part>
                                         <part class="part m-part7"></part>
                                         <part class="part m-part8"></part>
+                                        <part class="part m-parte"></part>
                                     </div>
                                 </div>
                                 <div class="scale-info" id="memory1"><span>1</span>GB</div>
@@ -383,26 +387,25 @@
         new scale('btn','bar','show','memory',function (obj,pos,x){
             var memory = [64, 128, 256, 512, 1, 2, 4, 8, 16, 32];
             var idx = 0;
-            if(pos == 0){
+
+            if(pos <= 0){
                 idx = 0
             }else {
                 idx = parseInt(pos/100*9)+1;
-                if(idx < 10){
-                    $('#'+obj.btn.id).stop().animate({left: 410/9*idx},{function(){
-                        obj.parts.each(function () {
-                            var i = obj.parts.index(this);
-                            if(i<idx){
-                                $(this).addClass('active');
-                            }else {
-                                $(this).removeClass('active');
-                            }
-                        });
-                    }},400);
-                    $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
-                }else {
+                if(idx >= 10){
                     idx = 9
                 }
             }
+            $('#'+obj.btn.id).stop().animate({left: 410/9*idx},400);
+            $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
+            obj.parts.each(function () {
+                var i = obj.parts.index(this);
+                if(i<=idx){
+                    $(this).addClass('active');
+                }else {
+                    $(this).removeClass('active');
+                }
+            })
             if(idx < 4){
                 obj.title.innerHTML='<span>'+memory[idx]+'</span>MB';
                 memory[idx] /= 1000;
@@ -423,7 +426,7 @@
             }
             obj.parts.each(function () {
                 var i = obj.parts.index(this);
-                if(i<idx){
+                if(i<=idx){
                     $(this).addClass('active');
                 }else {
                     $(this).removeClass('active');
@@ -464,26 +467,25 @@
         new scale('btn2','bar2','show2','memory1',function (obj,pos,x){
             var memory = [64, 128, 256, 512, 1, 2, 4, 8, 16, 32];
             var idx = 0;
-            if(pos == 0){
+
+            if(pos <= 0){
                 idx = 0
             }else {
                 idx = parseInt(pos/100*9)+1;
-                if(idx < 10){
-                    $('#'+obj.btn.id).stop().animate({left: 410/9*idx},{function(){
-                        obj.parts.each(function () {
-                            var i = obj.parts.index(this);
-                            if(i<idx){
-                                $(this).addClass('active');
-                            }else {
-                                $(this).removeClass('active');
-                            }
-                        });
-                    }}, 400);
-                    $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
-                }else {
+                if(idx >= 10){
                     idx = 9
                 }
             }
+            $('#'+obj.btn.id).stop().animate({left: 410/9*idx},400);
+            $('#'+obj.step.id).stop().animate({width: 410/9*idx}, 400);
+            obj.parts.each(function () {
+                var i = obj.parts.index(this);
+                if(i<=idx){
+                    $(this).addClass('active');
+                }else {
+                    $(this).removeClass('active');
+                }
+            })
             if(idx < 4){
                 obj.title.innerHTML='<span>'+memory[idx]+'</span>MB';
                 memory[idx] /= 1000;

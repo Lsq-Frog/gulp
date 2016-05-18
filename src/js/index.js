@@ -1629,9 +1629,17 @@ scale.prototype={
 			};
 			g.onmouseup = function(e){
 				g.onmousemove=null;
-				callback1(f,m.round(m.max(0,to/(max))*100),to);
-			}
+				callback1(f,parseInt(m.max(0,to/(max))*100),to);
+			};
 		};
+		f.parts.on('click', function(e){
+			g.onmouseup = null;
+			g.onmousemove = null;
+			var idx = f.parts.index(this);
+			idx+=0.1;
+			callback1(f,(idx-1)*100/9,idx*f.bar.offsetWidth/9);
+		})
+
 	}
 };
 

@@ -5,116 +5,197 @@
 	<title>精灵云 | 做国内最专业的容器云管理平台(内测版)</title>
 	<link type="image/x-icon" rel="shortcut icon" href="/images/ghostcloud.png" />
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" href="css/index.min.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<!-- header -->
-	<div class="header" style="background: #2696EC; height: 105px;">
-		<div class="header-top oh" style="border: 0;">
-			<div class="w1330 oh">
+	<div class="header" style="background: #2696EC;height: 605px;">
+		<div class="header-top">
+			<div class="w1330" style="background: #2696EC;overflow: visible">
 				<a class="header-top-logo fl" href="#"><img src="images/logo.png" title="精灵云 | 做国内最专业的容器云管理平台"></a>
-				<div class="header-top-nav oh fr">
-					<div class="h-t-nav-option"><a href="#">首页</a></div>
+				<div class="header-top-nav fr">
+					<div class="h-t-nav-option"><a class="active" href="#">首页</a></div>
 					<div class="h-t-nav-option"><a href="#">控制台</a></div>
 					<div class="h-t-nav-option"><a href="#">产品</a></div>
 					<div class="h-t-nav-option"><a href="#">文档</a></div>
 					<div class="h-t-nav-option"><a href="#">精灵学院</a></div>
 					<div class="h-t-nav-option"><a href="#">加入我们</a></div>
-					<div class="h-t-nav-option"><a class="active" href="#">用户中心</a></div>
-					<div class="h-t-nav-option"><span class="user-header-img"></span><p class="user-name">Emma&nbsp;&nbsp;&nbsp;| </p><a href="#">退出</a></div>
+					<div class="h-t-nav-option"><a href="#">登录</a></div>
+					<div class="h-t-nav-option user-info">
+						<span class="user-header-img"></span><p class="user-name">Emma</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="user-manage">
+							<span class="span1"></span>
+							<span class="span2"></span>
+							<a class="first" href="#">用户中心</a>
+							<a href="#">退出</a>
+						</div>
+					</div>
+					<script>
+						$('.user-manage').find('.first').hover(function(){
+							$('.user-manage').find('.span1').css({borderBottomColor: '#6FB6F4'})
+						},function(){
+							$('.user-manage').find('.span1').css({borderBottomColor: '#1898FB'})
+						})
+					</script>
 				</div>
 			</div>
 		</div>
-		<div class="header-user"></div>
+		<div class="header-bottom">
+			<div class="w1330 oh about-box">
+				<img src="images/aboutbk.jpg" alt="">
+				<div class="about-info">
+					<h3>ABOUT US</h3>
+					<p>成都精灵云科技有限公司（Ghostcloud——云端的Ghost）成立于2015年6月，是国内第一批从事容器虚拟化研发的创业型公司。公司以高度定制和优化的Docker为基础，在北京、深圳、杭州等地构建数据中心，致力于打造国内最专业的云计算基础架构和容器云管理平台。公司提供私有定制Docker版本、私有镜像仓库、区域公共镜像仓库、定制的应用模板和集群管理功能，使用户可以一键式的快速生成移动互联网后端应用和云计算基础应用。</p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- header end -->
 
 	<!-- container -->
-	<div class="container" style="background-color: #F7F7F7">
-		<div class="about-container">
-			<div class="left">
-				<div class="about">
-					<div class="title">关于我们</div>
-					<div class="en">About US</div>
+	<div class="container">
+		<div class="about-founders">
+			<div class="title">
+				<h3>公司创始人</h3>
+				<p>Founders</p>
+			</div>
+			<div class="founder-box">
+				<img src="images/about/about-header1.jpg" alt="Founders">
+				<div class="founder-info">
+					<h3>晏东</h3>
+					<h4>创始人兼CEO</h4>
+					<p>阿里云栖社区首席Docker技术专家，曾任Symantec/Veritas云计算及信息安全研究院中国区首席架构师，全球Top-talent，师从Veritas联合创始人兼Symantec首席科学家Ron Karr，从事分布式系统研发11年。Veritas中国区获得美国专利第一人，同时拥有10余项国内和美国专利，全球专利评审委员会委员。曾以公司代表身份，主导华为赛门铁克存储产品线的软件OEM交付工作。进入Veritas之前，曾任索贝数码文件系统及存储研究室资深架构师，以创始人身份研发出国内第一款商用SAN文件系统-FiShare及高可用中间件-FiSEC，填补了国内在商用分布式集群系统领域的空白。</p>
+				</div>
+			</div>
+			<div class="founder-box">
+				<img src="images/about/about-header2.jpg" alt="Founders">
+				<div class="founder-info">
+					<h3>刘发明</h3>
+					<h4>联合创始人兼架构师</h4>
+					<p>电子科技大学计算机博士，从事分布式及云计算系统研发12年，分布式高可用中间件国内顶级专家，微软最有价值专家，OpenStack开源项目贡献者，拥有国内外专利10余项。曾任华为云计算平台FusionCloud首席架构师，以项目负责人身份主导多个电视台全网云化工作。大学期间获Mathematical Contest in Modeling全国Outstanding奖项，拥有超过200万行的C/C++代码经验，超过10000个内核态及用户态CoreDump分析经验。国内最早一批Golang使用者，独立开发出GolangRPC库——GCRPC及Restful框架——GCRest。</p>
+				</div>
+			</div>
+			<div class="founder-box">
+				<img src="images/about/about-header3.jpg" alt="Founders">
+				<div class="founder-info">
+					<h3>丁勇</h3>
+					<h4>联合创始人兼CTO</h4>
+					<p>全栈工程师，Docker Compose及Docker Machine开源项目贡献者，国内全自主研发PaaS/CaaS平台——Ghostcloud总负责人。国内微服务领域专家，对高性能、高可用集群系统有丰富的经验。曾任国内某知名研究所（涉密）云计算部门技术总监，国内最高安全级别信息领域首席技术专家，拥有10余项云计算及安全领域国内专利，以第一作者发表多篇学术论文。国内第一批Hadoop、OpenStack的专家，以总负责人身份主导多个高安全领域云平台落地项目。</p>
+				</div>
+			</div>
+			<div class="founder-box">
+				<img src="images/about/about-header4.jpg" alt="Founders">
+				<div class="founder-info">
+					<h3>廖煜</h3>
+					<h4>联合创始人兼COO</h4>
+					<P>电子科技大学计算机和金融学双硕士，负责Ghostcloud的产品运营。曾任EMC西南区架构师。国内顶级Docker技术专家，Docker开源项目贡献者。拥有丰富的虚拟化、云计算和企业级软件经验。进入EMC之前，曾任赛门铁克资深研发工程师，主要从事虚拟化及存储项目研发，作为核心成员研发了赛门铁克虚拟化平台VxVI；以模块负责人身份研发了赛门铁克第一款存储一体机，并主导了该项目在阿里巴巴、中央电视台落地，同时负责华为赛门铁克虚拟云桌面支撑系统的交付工作。</P>
+				</div>
+			</div>
+		</div>
+		<div class="about-team">
+			<div class="title">
+				<h3>团队风采</h3>
+				<p>About Our Team</p>
+				<p class="info">精灵云是一个有爱的大家庭，工作氛围十分融洽，严谨的同时也不失轻松幽默。公司注重培养团队精神，还有定期活动和各种福利哦~小伙伴们还等什么，快到碗里来吧！</p>
+			</div>
+			<div class="w1190 oh team-box">
+				<div class="left">
+					<h3>优秀的团队</h3>
+					<p>我们是一只年轻而优秀的团队，50%的成员拥有硕士以上学历，其中不乏世界500强企业的首席技术人员。</p>
 					<div class="info">
-						<p>成都精灵云科技有限公司（Ghostcloud——云端的Ghost）成立于2015年6月，是国内第一批从事容器虚拟化研发的创业型公司，旨在为广大用户、企业和科研机构提供国内最专业的容器云管理平台和云计算基础架构。公司以高度定制和优化的Docker为基础，在北京、深圳、杭州等地构建数据中心，为用户提供国内一流的混合云平台。通过该平台可以方便在您的私有云和公有云中使用Docker，也可以使用精灵云的容器服务。公司提供私有定制Docker版本、私有镜像仓库、区域公共镜像仓库、定制的应用模板和集群管理功能，使用户可以一键式的快速生成移动互联网后端应用和云计算基础应用。</p>
-						<p>容器是下一代的虚拟化技术，相比于传统的Hyper-V技术，容器构建速度更快，管理更方便，价格更便宜。容器的出现，将彻底改变移动互联网和云计算的基础架构。</p>
+						<h4>Ghostcloud的每一位员工都秉持专业敬业、精益求精的匠人精神，力求将容器云技术发展到极致，为用户提供国内一流的CaaS服务。</h4>
+						<p>我们具备：</p>
+						<em><span></span>雄厚的技术实力</em>
+						<em><span></span>永不满足的求知精神</em>
+						<em><span></span>强大的团队凝聚力</em>
+						<p>我们注重：</p>
+						<em><span></span>人才培养</em>
+						<em><span></span>可持续的发展和成长</em>
+						<p>我们提供：</p>
+						<em><span></span>丰厚的激励与回报</em>
+						<em><span></span>为每一位员工制定长远规划</em>
 					</div>
 				</div>
-				<div class="recruit">
-					<div class="top">
-						<div class="title">加入我们</div>
-						<div class="en">Join US</div>
-						<div class="info">
-							<p>我们是一个优秀的团队，精灵云的创始人员平均拥有10年以上云计算和企业级软件经验，相信这里也可以成为你梦想起航的地方！</p>
-						</div>
+				<div class="right">
+					<div class="option option1"></div>
+					<div class="option option2"></div>
+					<div class="option option3"></div>
+					<div class="option">
+						<h3>定期培训</h3>
+						<p>Ghostcloud注重对每一位员工的培养，公司根据员工的需求，结合自身愿景，着眼于长远，为每一位员工提供定期的培训，使员工的个人能力及素质得到不断的提升。</p>
 					</div>
-					<div class="recruit-info">公司现诚招以下岗位，具有创业精神的您，欢迎加入我们！</div>
-					<div class="recruit-option option1">
-						<div class="title">Web前端开发工程师</div>
-						<div class="info">
-							<h3>岗位职责：</h3>
-							<p>负责公司主页及订单系统</p>
-							<p>参与公司云平台前端研发工作</p>
-							<p>设计并开发前后端交付接口</p>
-							<p>配合后台开发人员实现产品功能</p>
-							<p>对现有网站及系统进行开发、测试和维护</p>
-							<h3>任职要求：</h3>
-							<p>计算机及其相关专业本科以上学历</p>
-							<p>3年以上web前端开发经验</p>
-							<p>精通HTML/CSS, HTML5, Javascript, JQuery</p>
-							<p>精通AngularJS, ReactJS, EasyUI或其他任何一种前端框架者优先</p>
-							<p>具有一定后端开发经验者优先</p>
-							<p>具有全栈意识者优先</p>
-							<p>具有创业经验者优先</p>
-							<p>具有团队合作精神，吃苦耐劳，具有创业精神</p>
-						</div>
+					<div class="option option4"></div>
+					<div class="option">
+						<h3>团队精神培养</h3>
+						<p>Ghostcloud是一个有爱的大家庭，公司注重培养团队精神，定期举办团队活动，增强团队凝聚力，在严谨的同时也不失轻松幽默。</p>
 					</div>
-					<div class="recruit-option option2">
-						<div class="title">测试工程师</div>
-						<div class="info">
-							<h3>岗位职责：</h3>
-							<p>设计测试用例</p>
-							<p>执行测试用例</p>
-							<p>配合开发分析解决问题</p>
-							<h3>任职要求：</h3>
-							<p>计算机或相关专业</p>
-							<p>精通linux系统</p>
-							<p>熟悉shell编程</p>
-							<p>熟悉web测试</p>
-							<p>具有丰富的系统测试经验及测试用例设计经验</p>
-							<p>有较强的沟通和表达能力，善于交流</p>
-							<p>具有团队合作精神，吃苦耐劳，具有创业精神</p>
-						</div>
+					<div class="option option5">
+						<div class="right-h3"><span class="a-left"></span>畅通的晋升渠道 <span class="a-right"></span></div>
+						<p class="right-p">公司针对每一位员工量身定制一套晋升方案，让员工的每一分努力都有回报。</p>
 					</div>
-					<div class="bottom">
-						简历请发送至邮箱：hr@ghostcloud.cn，我们期待您的加入！
+					<div class="option">
+						<h3>打造学习型团队</h3>
+						<p>Ghostcloud力求建立一个良好的学习氛围，公司鼓励每一位员工积极学习新的专业知识，并定期举办分享活动，形成一条传递链，让每一个人的收获都能变成整个团队的知识。</p>
 					</div>
-				</div>
-				<div class="ourteam">
-					<div class="title">团队风采</div>
-					<div class="en">About Our Team</div>
-					<div class="info">
-						<p>精灵云是一个有爱的大家庭，工作氛围十分融洽，严谨的同时也不失轻松幽默。公司注重培养团队精神，还有定期活动和各种福利哦~小伙伴们还等什么，快到碗里来吧！</p>
-					</div>
-					<div class="img">
-						<img src="images/ourteam.png">
+					<div class="option option6">
+						<div class="right-h3 o"><span class="a-left al1"></span>完善的激励机制 <span class="a-right al1"></span></div>
+						<p class="right-p">优秀员工可以获得公司股权，与公司一同成长。</p>
 					</div>
 				</div>
 			</div>
-			<div class="right">
-				<div class="title">
-					<p>所属行业：</p>
-					<p>企业性质：</p>
-					<p class="addr">工作地址：</p>
-					<p>联系电话：</p>
-					<p>电子邮箱：</p>
+		</div>
+		<div class="about-join">
+			<div class="title">
+				<h3>加入我们</h3>
+				<p>JOIN US</p>
+				<p class="info">我们是一个优秀的团队，精灵云的创始人员平均拥有10年以上云计算和企业级软件经验，相信这里也可以成为你梦想起航的地方！公司现诚招以下岗位，具有创业精神的您，欢迎加入我们！</p>
+				<p class="info" style="margin-top: 10px ">简历请发送至邮箱：<a href="mailto:hr@ghostcloud.cn" style="color: #2696EC">hr@ghostcloud.cn</a>，我们期待您的加入！</p>
+			</div>
+			<div class="join-box">
+				<div class="option option1">
+					<h3>Web前端开发工程师</h3>
 				</div>
-				<div class="content">
-					<p>云计算</p>
-					<p>私营企业</p>
-					<p class="addr">成都市高新区天府大道中段500号</p>
-					<p>028-65785728</p>
-					<p>ghostcloud@ghostcloud.cn</p>
+				<div class="option option2">
+					<h3>岗位职责：</h3>
+					<p>负责公司主页及订单系统</p>
+					<p>参与公司云平台前端研发工作</p>
+					<p>设计并开发前后端交付接口</p>
+					<p>配合后台开发人员实现产品功能</p>
+					<p>对现有网站及系统进行开发、测试和维护</p>
+				</div>
+				<div class="option option3">
+					<h3>任职要求：</h3>
+					<p>计算机及其相关专业本科以上学历</p>
+					<p>3年以上web前端开发经验</p>
+					<p>精通HTML/CSS, HTML5, Javascript, JQuery</p>
+					<p>精通AngularJS, ReactJS, EasyUI或其他任何</p>
+					<p>一种前端框架者优先</p>
+					<p>具有一定后端开发经验者优先</p>
+					<p>具有全栈意识者优先</p>
+					<p>具有创业经验者优先</p>
+					<p>具有团队合作精神，吃苦耐劳，具有创业精神</p>
+				</div>
+			</div>
+			<div class="join-box" style="margin-bottom: 150px">
+				<div class="option option1" style="background-image: url('./images/about/join2.png')">
+					<h3>测试工程师</h3>
+				</div>
+				<div class="option option2">
+					<h3>岗位职责：</h3>
+					<p>设计测试用例</p>
+					<p>执行测试用例</p>
+					<p>配合开发分析解决问题</p>
+				</div>
+				<div class="option option3">
+					<h3>任职要求：</h3>
+					<p>计算机或相关专业</p>
+					<p>精通linux系统</p>
+					<p>熟悉shell编程</p>
+					<p>熟悉web测试</p>
+					<p>具有丰富的系统测试经验及测试用例设计经验</p>
+					<p>有较强的沟通和表达能力，善于交流</p>
+					<p>具有团队合作精神，吃苦耐劳，具有创业精神</p>
 				</div>
 			</div>
 		</div>

@@ -84,7 +84,7 @@ html {
 .header .header-top-nav .user-info .user-manage .span1 {
   position: absolute;
   display: inline-block;
-  top: -12px;
+  top: -11px;
   left: 41px;
   width: 0;
   height: 0;
@@ -96,7 +96,7 @@ html {
 .header .header-top-nav .user-info .user-manage .span2 {
   position: absolute;
   display: inline-block;
-  top: -13px;
+  top: -12px;
   left: 40px;
   width: 0;
   height: 0;
@@ -174,6 +174,28 @@ html {
   width: 1163px;
   height: 406px;
   background: url(../images/user/userp.png) center no-repeat;
+}
+.header .about-box {
+  position: relative;
+}
+.header .about-box .about-info {
+  position: absolute;
+  top: 35px;
+  left: 365px;
+  width: 600px;
+}
+.header .about-box .about-info h3 {
+  margin: 35px 0;
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+}
+.header .about-box .about-info p {
+  text-indent: 2.4em;
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+  line-height: 24px;
 }
 .footer .footer-top {
   background-color: #3D9DF3;
@@ -609,7 +631,7 @@ html {
   width: 129px;
   height: 148px;
   cursor: pointer;
-  background: center no-repeat;
+  background: url('../images/partners/home3icons.png') no-repeat;
 }
 .container-home-three .c-tr-our-partners .option a {
   display: inline-block;
@@ -617,100 +639,100 @@ html {
   height: 100%;
 }
 .container-home-three .c-tr-our-partners .option1 {
-  background-image: url("../images/partners/home3icon1.png");
+  background-position: 0 0px;
 }
 .container-home-three .c-tr-our-partners .option1:hover {
-  background-image: url("../images/partners/home3iconf1.png");
+  background-position: -143px 0px;
 }
 .container-home-three .c-tr-our-partners .option2 {
-  background-image: url("../images/partners/home3icon2.png");
+  background-position: 0 -148px;
 }
 .container-home-three .c-tr-our-partners .option2:hover {
-  background-image: url("../images/partners/home3iconf2.png");
+  background-position: -143px -148px;
 }
 .container-home-three .c-tr-our-partners .option3 {
-  background-image: url("../images/partners/home3icon3.png");
+  background-position: 0 -296px;
 }
 .container-home-three .c-tr-our-partners .option3:hover {
-  background-image: url("../images/partners/home3iconf3.png");
+  background-position: -143px -296px;
 }
 .container-home-three .c-tr-our-partners .option4 {
-  background-image: url("../images/partners/home3icon4.png");
+  background-position: 0 -444px;
 }
 .container-home-three .c-tr-our-partners .option4:hover {
-  background-image: url("../images/partners/home3iconf4.png");
+  background-position: -143px -444px;
 }
 .container-home-three .c-tr-our-partners .option5 {
-  background-image: url("../images/partners/home3icon5.png");
+  background-position: 0 -592px;
 }
 .container-home-three .c-tr-our-partners .option5:hover {
-  background-image: url("../images/partners/home3iconf5.png");
+  background-position: -143px -592px;
 }
 .container-home-three .c-tr-our-partners .option6 {
-  background-image: url("../images/partners/home3icon6.png");
+  background-position: 0 -740px;
 }
 .container-home-three .c-tr-our-partners .option6:hover {
-  background-image: url("../images/partners/home3iconf6.png");
+  background-position: -143px -740px;
 }
 .container-home-three .c-tr-our-partners .option7 {
-  background-image: url("../images/partners/home3icon7.png");
+  background-position: 0 -888px;
 }
 .container-home-three .c-tr-our-partners .option7:hover {
-  background-image: url("../images/partners/home3iconf7.png");
+  background-position: -143px -888px;
 }
 .container-home-three .c-tr-our-partners .option8 {
-  background-image: url("../images/partners/home3icon8.png");
+  background-position: 0 -1036px;
 }
 .container-home-three .c-tr-our-partners .option8:hover {
-  background-image: url("../images/partners/home3iconf8.png");
+  background-position: -143px -1036px;
 }
 .container-home-three .c-tr-our-partners .option9 {
-  background-image: url("../images/partners/home3icon9.png");
+  background-position: 0 -1184px;
 }
 .container-home-three .c-tr-our-partners .option9:hover {
-  background-image: url("../images/partners/home3iconf9.png");
+  background-position: -143px -1184px;
 }
 .container-home-three .c-tr-our-partners .option10 {
-  background-image: url("../images/partners/home3icon10.png");
+  background-position: 0 -1332px;
 }
 .container-home-three .c-tr-our-partners .option10:hover {
-  background-image: url("../images/partners/home3iconf10.png");
+  background-position: -143px -1332px;
 }
 .container-home-three .c-tr-our-partners .option11 {
-  background-image: url("../images/partners/home3icon11.png");
+  background-position: 0 -1480px;
 }
 .container-home-three .c-tr-our-partners .option11:hover {
-  background-image: url("../images/partners/home3iconf11.png");
+  background-position: -143px -1480px;
 }
 .container-home-three .c-tr-our-partners .option12 {
-  background-image: url("../images/partners/home3icon12.png");
+  background-position: 0 -1628px;
 }
 .container-home-three .c-tr-our-partners .option12:hover {
-  background-image: url("../images/partners/home3iconf12.png");
+  background-position: -143px -1628px;
 }
 .container-home-three .c-tr-our-partners .option13 {
-  background-image: url("../images/partners/home3icon13.png");
+  background-position: 0 -1776px;
 }
 .container-home-three .c-tr-our-partners .option13:hover {
-  background-image: url("../images/partners/home3iconf13.png");
+  background-position: -143px -1776px;
 }
 .container-home-three .c-tr-our-partners .option14 {
-  background-image: url("../images/partners/home3icon14.png");
+  background-position: 0 -1924px;
 }
 .container-home-three .c-tr-our-partners .option14:hover {
-  background-image: url("../images/partners/home3iconf14.png");
+  background-position: -143px -1924px;
 }
 .container-home-three .c-tr-our-partners .option15 {
-  background-image: url("../images/partners/home3icon15.png");
+  background-position: 0 -2072px;
 }
 .container-home-three .c-tr-our-partners .option15:hover {
-  background-image: url("../images/partners/home3iconf15.png");
+  background-position: -143px -2072px;
 }
 .container-home-three .c-tr-our-partners .option16 {
-  background-image: url("../images/partners/home3icon16.png");
+  background-position: 0 -2220px;
 }
 .container-home-three .c-tr-our-partners .option16:hover {
-  background-image: url("../images/partners/home3iconf16.png");
+  background-position: -143px -2220px;
 }
 .container-home-three .rowl .mgl {
   margin-left: 72px;
@@ -2461,181 +2483,307 @@ html {
   font-size: 18px;
   color: #fff;
 }
-.about-container {
+.about-founders {
   overflow: hidden;
-  width: 1190px;
-  margin: auto;
+  width: 1046px;
+  margin: 0 auto 60px;
 }
-.about-container .left {
-  float: left;
-  margin-top: 30px;
+.about-founders .title {
   overflow: hidden;
-  width: 900px;
+  margin: 40px 0;
 }
-.about-container .left .about {
-  margin-bottom: 20px;
-  width: 898px;
-  height: 320px;
-  border: 1px solid #EDEDED;
-  border-radius: 5px;
-  background: url('../images/about1.png') 40px center no-repeat #fff;
-}
-.about-container .left .about .title {
+.about-founders .title h3 {
+  text-align: center;
   font-size: 24px;
-  font-weight: bold;
   color: #394A58;
-  margin: 45px 0 0 225px;
-}
-.about-container .left .about .en {
-  font-size: 20px;
-  font-weight: bold;
-  color: #C1C1C2;
-  margin: 0 0 0 225px;
-}
-.about-container .left .about .info {
-  font-size: 14px;
-  color: #565656;
-  line-height: 22px;
-  width: 650px;
-  margin: 5px 0 0 225px;
-}
-.about-container .left .about .info p {
-  text-indent: 2em;
-}
-.about-container .left .recruit {
-  overflow: hidden;
-  margin-bottom: 20px;
-  width: 898px;
-  border: 1px solid #EDEDED;
-  border-radius: 5px;
-  background-color: #fff;
-}
-.about-container .left .recruit .top {
-  overflow: hidden;
-  width: 100%;
-  height: 201px;
-  background: url('../images/about2.png') 40px 40px no-repeat #fff;
-}
-.about-container .left .recruit .top .title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #394A58;
-  margin: 45px 0 0 225px;
-}
-.about-container .left .recruit .top .en {
-  font-size: 20px;
-  font-weight: bold;
-  color: #C1C1C2;
-  margin: 0 0 0 225px;
-}
-.about-container .left .recruit .top .info {
-  font-size: 14px;
-  color: #565656;
-  line-height: 22px;
-  width: 650px;
-  margin: 0 0 0 225px;
-  padding: 20px 0;
-  border-bottom: 1px solid #EDEDED;
-}
-.about-container .left .recruit .recruit-info {
-  padding-left: 220px;
-  font-size: 14px;
   line-height: 30px;
-  margin: 30px 0 0;
 }
-.about-container .left .recruit .recruit-option {
-  overflow: hidden;
-  width: 100%;
-  background: url('../images/about2.png') 40px 40px no-repeat #fff;
-}
-.about-container .left .recruit .recruit-option .title {
-  font-size: 18px;
-  color: #73C2FF;
-  margin: 40px 0 0 225px;
-  line-height: 60px;
-}
-.about-container .left .recruit .recruit-option .info {
-  font-size: 14px;
-  color: #565656;
-  line-height: 22px;
-  width: 650px;
-  margin: 0 0 0 225px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #EDEDED;
-}
-.about-container .left .recruit .recruit-option .info h3 {
-  line-height: 40px;
-}
-.about-container .left .recruit .option1 {
-  background-image: url('../images/about4.png');
-}
-.about-container .left .recruit .option2 {
-  background-image: url('../images/about3.png');
-}
-.about-container .left .recruit .bottom {
-  padding-left: 220px;
-  font-size: 18px;
-  line-height: 76px;
-  color: #73C2FF;
-  font-weight: bold;
-}
-.about-container .left .ourteam {
-  overflow: hidden;
-  margin-bottom: 20px;
-  width: 898px;
-  border: 1px solid #EDEDED;
-  border-radius: 5px;
-  background: url('../images/about5.png') 40px 40px no-repeat #fff;
-}
-.about-container .left .ourteam .title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #394A58;
-  margin: 45px 0 0 225px;
-}
-.about-container .left .ourteam .en {
+.about-founders .title p {
   font-size: 20px;
-  font-weight: bold;
+  text-align: center;
   color: #C1C1C2;
-  margin: 0 0 0 225px;
-}
-.about-container .left .ourteam .info {
-  font-size: 14px;
-  color: #565656;
-  line-height: 22px;
-  width: 650px;
-  margin: 0 0 0 225px;
-  padding: 20px 0;
-}
-.about-container .left .ourteam .img {
-  margin: 40px;
-}
-.about-container .right {
-  margin-top: 30px;
-  float: right;
-  width: 270px;
-  height: 190px;
-  border: 1px solid #EDEDED;
-  border-radius: 5px;
-  background-color: #fff;
-}
-.about-container .right .title,
-.about-container .right .content {
-  float: left;
-  width: 80px;
-  margin: 16px 0;
-  text-align: right;
-  font-size: 14px;
-  color: #565656;
   line-height: 26px;
 }
-.about-container .right .title .addr,
-.about-container .right .content .addr {
-  height: 52px;
+.about-founders .founder-box {
+  float: left;
+  margin: 0 23px 30px;
+  width: 475px;
+  height: 680px;
+  border: 1px solid #EEEEEE;
 }
-.about-container .right .content {
-  width: 185px;
+.about-founders .founder-box .founder-info {
+  overflow: hidden;
+  margin-top: 30px;
+  text-align: center;
+}
+.about-founders .founder-box .founder-info h3 {
+  font-size: 26px;
+  color: #30A9E8;
+  line-height: 36px;
+}
+.about-founders .founder-box .founder-info h4 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #30A9E8;
+  line-height: 24px;
+}
+.about-founders .founder-box .founder-info p {
+  padding: 15px 50px;
+  line-height: 27px;
   text-align: left;
+  color: #505050;
+}
+.about-team {
+  overflow: hidden;
+  background-color: #EFF3F5;
+}
+.about-team .title {
+  overflow: hidden;
+  margin: 60px 0 40px;
+}
+.about-team .title h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #394A58;
+  line-height: 30px;
+}
+.about-team .title p {
+  font-size: 20px;
+  text-align: center;
+  color: #C1C1C2;
+  line-height: 26px;
+}
+.about-team .title .info {
+  margin: 30px auto 0;
+  width: 650px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #000;
+  text-align: left;
+  line-height: 20px;
+}
+.about-team .team-box {
+  overflow: hidden;
+  margin-bottom: 90px;
+}
+.about-team .team-box .left {
+  float: left;
+  width: 342px;
+  height: 635px;
+  background-color: #3498DB;
+}
+.about-team .team-box .left h3 {
+  padding: 25px 20px 15px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+}
+.about-team .team-box .left p {
+  padding: 0 20px 25px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #ADDDF9;
+}
+.about-team .team-box .left .info {
+  margin: 2px auto 0;
+  width: 334px;
+  height: 495px;
+  background-color: #fff;
+}
+.about-team .team-box .left .info h4 {
+  padding: 30px 13px 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #7C7C7C;
+}
+.about-team .team-box .left .info p {
+  padding: 0 14px;
+  color: #7C7C7C;
+  line-height: 36px;
+  text-indent: 2.4em;
+}
+.about-team .team-box .left .info em {
+  position: relative;
+  display: inline-block;
+  width: 238px;
+  padding: 0 48px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #7C7C7C;
+  line-height: 36px;
+  text-indent: 2.4em;
+}
+.about-team .team-box .left .info em span {
+  position: absolute;
+  top: 14px;
+  left: 48px;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #3498DB;
+}
+.about-team .team-box .right {
+  float: left;
+  width: 848px;
+}
+.about-team .team-box .right .option {
+  float: left;
+  width: 282.66666667px;
+  height: 211.66666667px;
+  background-color: #fff;
+}
+.about-team .team-box .right .option h3 {
+  padding: 40px 20px 20px;
+  font-size: 16px;
+  color: #2C3E50;
+}
+.about-team .team-box .right .option p {
+  padding: 0 20px;
+  font-size: 14px;
+  color: #7C7C7C;
+  line-height: 20px;
+}
+.about-team .team-box .right .option .right-h3 {
+  position: relative;
+  margin: 40px 20px 20px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 26px;
+  background-color: #54BF90;
+  width: 112px;
+}
+.about-team .team-box .right .option .right-h3.o {
+  background-color: #B167D0;
+}
+.about-team .team-box .right .option .right-h3 .a-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid #36A675;
+  border-right: 10px solid #54BF90;
+  border-bottom: 13px solid #36A675;
+}
+.about-team .team-box .right .option .right-h3 .a-left.al1 {
+  border-color: #8E44AD;
+  border-right-color: #B167D0;
+}
+.about-team .team-box .right .option .right-h3 .a-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid #36A675;
+  border-left: 10px solid #54BF90;
+  border-bottom: 13px solid #36A675;
+}
+.about-team .team-box .right .option .right-h3 .a-right.al1 {
+  border-color: #8E44AD;
+  border-left-color: #B167D0;
+}
+.about-team .team-box .right .option .right-p {
+  padding: 0 30px;
+  color: #fff;
+}
+.about-team .team-box .right .option1 {
+  background-image: url("../images/about/about-team1.jpg");
+}
+.about-team .team-box .right .option2 {
+  background-image: url("../images/about/about-team2.jpg");
+}
+.about-team .team-box .right .option3 {
+  background-image: url("../images/about/about-team3.jpg");
+}
+.about-team .team-box .right .option4 {
+  background-image: url("../images/about/about-team4.jpg");
+}
+.about-team .team-box .right .option5 {
+  background-image: url("../images/about/about-team5.jpg");
+}
+.about-team .team-box .right .option6 {
+  background-image: url("../images/about/about-team6.jpg");
+}
+.about-join {
+  overflow: hidden;
+}
+.about-join .title {
+  overflow: hidden;
+  margin: 60px 0 40px;
+}
+.about-join .title h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #394A58;
+  line-height: 30px;
+}
+.about-join .title p {
+  font-size: 20px;
+  text-align: center;
+  color: #C1C1C2;
+  line-height: 26px;
+}
+.about-join .title .info {
+  margin: 30px auto 0;
+  width: 650px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #000;
+  text-align: left;
+  line-height: 20px;
+}
+.about-join .join-box {
+  width: 1076px;
+  height: 260px;
+  margin: 0 auto 35px;
+}
+.about-join .join-box .option {
+  float: left;
+  width: 33.33333333%;
+  height: 100%;
+}
+.about-join .join-box .option1 {
+  background: url("../images/about/join1.png") center 40px no-repeat #F6F7F9;
+}
+.about-join .join-box .option1 h3 {
+  margin-top: 215px;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+}
+.about-join .join-box .option2 {
+  background-color: #FCFAFB;
+}
+.about-join .join-box .option2 h3 {
+  padding: 40px 40px 20px;
+  font-size: 18px;
+  color: #4B4B4B;
+}
+.about-join .join-box .option2 p {
+  padding: 0 40px;
+  font-size: 14px;
+  color: #4B4B4B;
+  line-height: 26px;
+}
+.about-join .join-box .option3 {
+  background-color: #F3F3F3;
+}
+.about-join .join-box .option3 h3 {
+  padding: 40px 20px 10px;
+  font-size: 18px;
+  color: #4B4B4B;
+}
+.about-join .join-box .option3 p {
+  padding: 0 20px;
+  font-size: 14px;
+  color: #4B4B4B;
+  line-height: 20px;
 }
 .product-app-content {
   overflow: hidden;
@@ -3569,39 +3717,47 @@ html {
 }
 .container-charge .content .config-option .config-box .scale .part {
   display: inline-block;
-  width: 1px;
-  height: 3px;
-  background-color: #989898;
+  width: 9px;
+  height: 6px;
+  background: url(../images/charge/icon10.png) -7px 3px no-repeat;
   position: absolute;
   left: 1px;
-  top: 2px;
+  top: 0;
+  cursor: pointer;
 }
 .container-charge .content .config-option .config-box .scale .part.active {
-  background-color: #fff;
+  background: url(../images/charge/icon10.png) 4px 3px no-repeat;
+}
+.container-charge .content .config-option .config-box .scale .part.m-partb,
+.container-charge .content .config-option .config-box .scale .part.m-parte {
+  background: none;
+}
+.container-charge .content .config-option .config-box .scale .part.m-parte {
+  left: 400px;
 }
 .container-charge .content .config-option .config-box .scale .m-part1 {
-  left: 11.11111111%;
+  left: 41.55555556px;
 }
 .container-charge .content .config-option .config-box .scale .m-part2 {
-  left: 22.22222222%;
+  left: 87.11111111px;
 }
 .container-charge .content .config-option .config-box .scale .m-part3 {
-  left: 33.33333333%;
+  left: 132.66666667px;
 }
 .container-charge .content .config-option .config-box .scale .m-part4 {
-  left: 44.44444444%;
+  left: 178.22222222px;
 }
 .container-charge .content .config-option .config-box .scale .m-part5 {
-  left: 55.55555556%;
+  left: 223.77777778px;
 }
 .container-charge .content .config-option .config-box .scale .m-part6 {
-  left: 66.66666667%;
+  left: 269.33333333px;
 }
 .container-charge .content .config-option .config-box .scale .m-part7 {
-  left: 77.77777778%;
+  left: 314.88888889px;
 }
 .container-charge .content .config-option .config-box .scale .m-part8 {
-  left: 88.88888889%;
+  left: 360.44444444px;
 }
 .container-charge .content .config-option .config-box .scale div {
   border-radius: 3px;
